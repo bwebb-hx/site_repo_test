@@ -1,0 +1,128 @@
+// _globals.scss - Global styles and utilities
+@use 'tokens' as *;
+
+// Global container styles
+.container {
+  width: 100%;
+  max-width: $sizing-container-max-width-lg;
+  margin: 0 auto;
+  padding: 0 $layout-padding-container-mobile;
+
+  @media (min-width: $breakpoints-desktop) {
+    padding: 0 $layout-padding-container-desktop;
+  }
+
+  &--xl {
+    max-width: $sizing-container-max-width-xl;
+  }
+
+  &--full {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+// Global utilities
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Aspect ratio utility (fallback for older browsers)
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: var(--aspect-ratio, 56.25%); // Default 16:9
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Loading states
+.loading {
+  opacity: $opacity-60;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid $color-semantic-border-light;
+    border-top-color: $color-primary-yellow-main;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Smooth scrolling
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  * {
+    border-color: $color-semantic-text-secondary !important;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}
+
+// Print styles
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,0 +1,153 @@
+// _newslist.scss - News list page specific styles
+@use '../foundation' as *;
+
+.pg-newslist {
+  // Page-specific overrides and styles for news list template
+  
+  // Ensure proper spacing between major sections
+  .ly-header + .cp-breadcrumb {
+    margin-top: 0;
+  }
+
+  .cp-breadcrumb + .ly-wrapper {
+    margin-top: 0;
+  }
+
+  // Adjust wrapper height for news list page
+  .ly-wrapper {
+    min-height: 600px;
+
+    @media (max-width: $breakpoints-tablet) {
+      min-height: 400px;
+    }
+
+    @media (max-width: $breakpoints-mobile) {
+      min-height: 300px;
+    }
+  }
+
+  // News list specific styles
+  .ly-news-section {
+    // Add subtle background for news area
+    background: $color-semantic-background-primary;
+    border-radius: $border-radius-base;
+    padding: $spacing-24;
+    box-shadow: $box-shadow-sm;
+
+    @media (max-width: $breakpoints-mobile) {
+      padding: $spacing-16;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  // Enhanced focus management for news items
+  .ly-news-item {
+    border-radius: $border-radius-sm;
+    transition: background-color $animation-duration-fast $animation-easing-ease-out;
+
+    &:hover {
+      background-color: rgba($color-semantic-background-secondary, 0.3);
+    }
+
+    &:focus-within {
+      background-color: rgba($color-semantic-interactive-hover, 0.2);
+      outline: $border-width-1 solid $color-semantic-border-accent;
+    }
+  }
+
+  // Sidebar improvements for news list
+  .ly-main__sidebar {
+    // Add subtle background
+    background: rgba($color-semantic-background-secondary, 0.5);
+    border-radius: $border-radius-base;
+    padding: $spacing-16;
+
+    @media (max-width: $breakpoints-tablet) {
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+  // Empty state styling improvements
+  .ly-news-empty {
+    background: rgba($color-semantic-background-secondary, 0.3);
+    border-radius: $border-radius-base;
+    padding: $spacing-48;
+
+    &__message {
+      font-style: italic;
+    }
+  }
+
+  // Page-specific responsive adjustments
+  @media (max-width: $breakpoints-mobile) {
+    .cp-h1 {
+      padding: $spacing-16 0 $spacing-24;
+    }
+
+    .ly-main__container {
+      gap: $spacing-24;
+    }
+  }
+
+  // Print styles for news list
+  @media print {
+    .ly-header,
+    .cp-breadcrumb,
+    .ly-main__sidebar,
+    .ly-footer {
+      display: none;
+    }
+
+    .ly-wrapper {
+      background: none !important;
+      
+      &__background {
+        display: none !important;
+      }
+    }
+
+    .ly-news-section {
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .ly-news-item {
+      page-break-inside: avoid;
+      border-bottom: $border-width-1 solid $color-neutral-gray-600;
+      margin-bottom: $spacing-16;
+      padding-bottom: $spacing-12;
+    }
+  }
+
+  // Dark mode considerations (future enhancement)
+  @media (prefers-color-scheme: dark) {
+    .ly-news-section {
+      // Dark mode styles would go here when implemented
+    }
+  }
+
+  // High contrast mode adjustments
+  @media (prefers-contrast: high) {
+    .ly-news-section {
+      border: $border-width-2 solid $color-semantic-border-default;
+    }
+
+    .ly-news-item {
+      border-color: $color-semantic-border-default;
+      
+      &:hover,
+      &:focus-within {
+        background-color: $color-semantic-background-secondary;
+        border-color: $color-semantic-text-secondary;
+      }
+    }
+  }
+
+  // Reduced motion preferences
+  @media (prefers-reduced-motion: reduce) {
+    .ly-news-item {
+      transition: none;
+    }
+  }
+}

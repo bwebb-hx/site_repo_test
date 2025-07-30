@@ -1,0 +1,29 @@
+// _container.scss - Container layout utility
+@use '../foundation' as *;
+
+.ly-container {
+  width: 100%;
+  max-width: $sizing-container-max-width-lg;
+  margin: 0 auto;
+  padding: 0 $layout-padding-container-mobile;
+
+  @media (min-width: $breakpoints-desktop) {
+    padding: 0 $layout-padding-container-desktop;
+  }
+
+  // Full width variant
+  &--full {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  // Extra large variant
+  &--xl {
+    max-width: $sizing-container-max-width-xl;
+  }
+
+  // Small mobile padding
+  @media (max-width: $breakpoints-mobile) {
+    padding: 0 $spacing-16;
+  }
+}

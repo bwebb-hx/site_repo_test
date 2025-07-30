@@ -1,0 +1,407 @@
+{
+  "templateName": "newslist",
+  "templateDescription": "News list page template with sidebar filtering and dynamic content",
+  "components": [
+    {
+      "name": "ly-sidemenu",
+      "html_path": "src/html/components/ly-sidemenu",
+      "description": "Year selection sidebar for filtering news",
+      "placement": "Main content sidebar",
+      "configuration": {
+        "years": "availableYears",
+        "currentYear": "currentYear"
+      },
+      "webRelease2Usage": "%ly-sidemenu.generateText(availableYears, currentYear)%"
+    },
+    {
+      "name": "cp-news-item",
+      "html_path": "src/html/components/cp-news-item", 
+      "description": "Individual news item component",
+      "placement": "Main content loop",
+      "configuration": {
+        "date": "newsItem.date",
+        "category": "newsItem.category",
+        "title": "newsItem.title",
+        "url": "newsItem.url",
+        "isExternal": "newsItem.isExternal"
+      },
+      "webRelease2Usage": "%cp-news-item.generateText(newsItem.date, newsItem.category, newsItem.title, newsItem.url, newsItem.isExternal)%"
+    },
+    {
+      "name": "ly-footer",
+      "html_path": "src/html/components/ly-footer",
+      "description": "Site footer with links and copyright",
+      "placement": "Page footer",
+      "configuration": {
+        "variant": "pc",
+        "companyName": "companyName",
+        "linkGroups": "footerLinkGroups"
+      },
+      "webRelease2Usage": "%ly-footer.generateText(\"pc\", companyName, footerLinkGroups)%"
+    }
+  ],
+  "elements": [
+    {
+      "name": "pageTitle", 
+      "type": "single-line-text",
+      "description": "Main page heading and title",
+      "required": true,
+      "maxLength": 50,
+      "defaultValue": "新着情報・お知らせ",
+      "usage": ["H1 title", "Breadcrumb", "HTML title", "Meta tags"]
+    },
+    {
+      "name": "breadcrumbHome",
+      "type": "single-line-text",
+      "description": "Home link text in breadcrumb",
+      "required": true,
+      "maxLength": 30,
+      "defaultValue": "サカイ引越センターHOME",
+      "usage": ["Breadcrumb home link"]
+    },
+    {
+      "name": "companyName",
+      "type": "single-line-text", 
+      "description": "Company name for branding and copyright",
+      "required": true,
+      "maxLength": 100,
+      "defaultValue": "Sakai Moving Service Co.Ltd",
+      "usage": ["Copyright", "Logo alt text", "Meta tags"]
+    },
+    {
+      "name": "copyrightYear",
+      "type": "single-line-text",
+      "description": "Year for copyright notice",
+      "required": true,
+      "maxLength": 4,
+      "defaultValue": "2025",
+      "usage": ["Footer copyright"]
+    },
+    {
+      "name": "noNewsMessage",
+      "type": "multi-line-text",
+      "description": "Message when no news items available",
+      "required": false,
+      "maxLength": 200,
+      "defaultValue": "現在、お知らせはありません。",
+      "usage": ["Empty state message"]
+    },
+    {
+      "name": "logoImage",
+      "type": "image",
+      "description": "Company logo for header",
+      "required": true,
+      "acceptedFormats": ["SVG", "PNG"],
+      "recommendedSize": "210×48px",
+      "defaultValue": "/assets_v2/img/logos/logo_sakai_brand.svg",
+      "usage": ["Header logo"]
+    },
+    {
+      "name": "backgroundOverlay",
+      "type": "image",
+      "description": "Optional background overlay for customization",
+      "required": false,
+      "acceptedFormats": ["PNG", "JPG", "WebP"],
+      "recommendedSize": "1440×960px",
+      "usage": ["Background customization"]
+    },
+    {
+      "name": "newsItems",
+      "type": "table-of-contents",
+      "description": "Collection of news articles",
+      "required": false,
+      "structure": {
+        "date": {
+          "type": "date-time",
+          "required": true,
+          "description": "Publication date"
+        },
+        "category": {
+          "type": "single-line-text",
+          "required": true,
+          "maxLength": 20,
+          "description": "News category/tag"
+        },
+        "title": {
+          "type": "single-line-text", 
+          "required": true,
+          "maxLength": 100,
+          "description": "News headline"
+        },
+        "url": {
+          "type": "link",
+          "required": false,
+          "maxLength": 500,
+          "description": "Link to full article"
+        },
+        "isExternal": {
+          "type": "checkbox",
+          "required": false,
+          "defaultValue": false,
+          "description": "Opens in new window"
+        },
+        "thumbnail": {
+          "type": "image",
+          "required": false,
+          "acceptedFormats": ["PNG", "JPG", "WebP"],
+          "recommendedSize": "300×200px",
+          "description": "Article thumbnail"
+        }
+      },
+      "usage": ["Main news list content"]
+    },
+    {
+      "name": "availableYears",
+      "type": "array",
+      "description": "Years available for filtering",
+      "required": true,
+      "structure": {
+        "year": {
+          "type": "single-line-text",
+          "required": true,
+          "format": "YYYY",
+          "description": "Year value"
+        },
+        "unit": {
+          "type": "single-line-text",
+          "required": true,
+          "defaultValue": "年度",
+          "description": "Unit text"
+        },
+        "state": {
+          "type": "radio-button",
+          "required": true,
+          "options": ["active", "default"],
+          "defaultValue": "default",
+          "description": "Button state"
+        }
+      },
+      "defaultValue": [
+        {"year": "2025", "unit": "年度", "state": "active"},
+        {"year": "2024", "unit": "年度", "state": "default"},
+        {"year": "2023", "unit": "年度", "state": "default"},
+        {"year": "2022", "unit": "年度", "state": "default"},
+        {"year": "2021", "unit": "年度", "state": "default"},
+        {"year": "2020", "unit": "年度", "state": "default"},
+        {"year": "2019", "unit": "年度", "state": "default"},
+        {"year": "2018", "unit": "年度", "state": "default"},
+        {"year": "2017", "unit": "年度", "state": "default"},
+        {"year": "2016", "unit": "年度", "state": "default"},
+        {"year": "2015", "unit": "年度", "state": "default"}
+      ],
+      "usage": ["Sidebar year filter"]
+    },
+    {
+      "name": "currentYear",
+      "type": "single-line-text",
+      "description": "Currently selected year",
+      "required": true,
+      "format": "YYYY",
+      "defaultValue": "2025",
+      "usage": ["Active year highlight"]
+    },
+    {
+      "name": "footerLinkGroups",
+      "type": "array",
+      "description": "Footer navigation link groups",
+      "required": false,
+      "structure": {
+        "label": {
+          "type": "single-line-text",
+          "required": true,
+          "maxLength": 50,
+          "description": "Group label"
+        },
+        "links": {
+          "type": "array",
+          "description": "Links in this group",
+          "structure": {
+            "text": {
+              "type": "single-line-text",
+              "required": true,
+              "maxLength": 50,
+              "description": "Link text"
+            },
+            "url": {
+              "type": "link",
+              "required": true,
+              "maxLength": 500,
+              "description": "Link URL"
+            }
+          }
+        }
+      },
+      "defaultValue": [
+        {
+          "label": "サービス",
+          "links": [
+            {"text": "個人の引越し", "url": "/personal/"},
+            {"text": "法人お引越し", "url": "/corporate/"},
+            {"text": "海外への引越し", "url": "/overseas/"}
+          ]
+        }
+      ],
+      "usage": ["Footer navigation"]
+    },
+    {
+      "name": "showBackground",
+      "type": "checkbox",
+      "description": "Toggle decorative background elements",
+      "required": false,
+      "defaultValue": true,
+      "usage": ["Background display control"]
+    },
+    {
+      "name": "enableYearFilter",
+      "type": "checkbox",
+      "description": "Enable/disable year filtering sidebar",
+      "required": false,
+      "defaultValue": true,
+      "usage": ["Sidebar display control"]
+    },
+    {
+      "name": "metaDescription",
+      "type": "multi-line-text",
+      "description": "SEO meta description",
+      "required": false,
+      "maxLength": 160,
+      "defaultValue": "サカイ引越センターの新着情報・お知らせページです。最新のニュースやキャンペーン情報をお届けします。",
+      "usage": ["SEO meta tag"]
+    },
+    {
+      "name": "metaKeywords",
+      "type": "single-line-text",
+      "description": "SEO keywords",
+      "required": false,
+      "maxLength": 200,
+      "defaultValue": "サカイ引越センター,新着情報,お知らせ,引越し,ニュース",
+      "usage": ["SEO meta tag"]
+    },
+    {
+      "name": "ogTitle",
+      "type": "single-line-text",
+      "description": "Open Graph title for social sharing",
+      "required": false,
+      "maxLength": 60,
+      "defaultValue": "新着情報・お知らせ | サカイ引越センター",
+      "usage": ["Social media sharing"]
+    },
+    {
+      "name": "ogDescription",
+      "type": "multi-line-text",
+      "description": "Open Graph description for social sharing",
+      "required": false,
+      "maxLength": 200,
+      "defaultValue": "サカイ引越センターの最新ニュースとお知らせをご覧いただけます。",
+      "usage": ["Social media sharing"]
+    },
+    {
+      "name": "ogImage",
+      "type": "image",
+      "description": "Open Graph image for social sharing",
+      "required": false,
+      "acceptedFormats": ["PNG", "JPG"],
+      "recommendedSize": "1200×630px",
+      "defaultValue": "/assets_v2/img/common/ogp.png",
+      "usage": ["Social media sharing"]
+    }
+  ],
+  "resources": [
+    {
+      "name": "common-css",
+      "type": "stylesheet",
+      "path": "/assets_v2/css/common.css",
+      "description": "Global styles shared across all pages"
+    },
+    {
+      "name": "newslist-css",
+      "type": "stylesheet", 
+      "path": "/assets_v2/css/newslist.css",
+      "description": "Page-specific styles for news list template"
+    },
+    {
+      "name": "common-js",
+      "type": "javascript",
+      "path": "/assets_v2/js/common.js",
+      "description": "Global JavaScript shared across all pages"
+    },
+    {
+      "name": "newslist-js",
+      "type": "javascript",
+      "path": "/assets_v2/js/newslist.js", 
+      "description": "Page-specific JavaScript for news list functionality"
+    },
+    {
+      "name": "logo-brand",
+      "type": "image",
+      "path": "/assets_v2/img/logos/logo_sakai_brand.svg",
+      "description": "Company logo SVG"
+    },
+    {
+      "name": "icon-home",
+      "type": "image",
+      "path": "/assets_v2/img/icons/icon_home_filled.svg",
+      "description": "Home icon for breadcrumb"
+    },
+    {
+      "name": "icon-arrow-right",
+      "type": "image",
+      "path": "/assets_v2/img/icons/icon_arrow_right.svg",
+      "description": "Right arrow icon for breadcrumb separator"
+    },
+    {
+      "name": "bg-base",
+      "type": "image",
+      "path": "/assets_v2/img/backgrounds/bg_rectangle_base.png",
+      "description": "Base background layer"
+    },
+    {
+      "name": "bg-gradient",
+      "type": "image", 
+      "path": "/assets_v2/img/backgrounds/bg_gradient_yellow.png",
+      "description": "Yellow gradient background overlay"
+    },
+    {
+      "name": "bg-ellipse-large",
+      "type": "image",
+      "path": "/assets_v2/img/backgrounds/bg_ellipse_large.png",
+      "description": "Large decorative ellipse"
+    },
+    {
+      "name": "bg-ellipse-small",
+      "type": "image",
+      "path": "/assets_v2/img/backgrounds/bg_ellipse_small.png",
+      "description": "Small decorative ellipse"
+    }
+  ],
+  "templateFeatures": {
+    "responsiveDesign": true,
+    "accessibility": "WCAG 2.1 AA compliant",
+    "seoOptimized": true,
+    "structuredData": true,
+    "conditionalContent": true,
+    "dynamicContent": true,
+    "componentIntegration": true
+  },
+  "implementationNotes": {
+    "existingComponentsUsed": [
+      "ly-sidemenu - Year filtering sidebar",
+      "cp-news-item - News article display", 
+      "ly-footer - Site footer with links"
+    ],
+    "templateSpecificElements": [
+      "Header with logo",
+      "Breadcrumb navigation",
+      "Page title (H1)",
+      "Background wrapper",
+      "Main content structure"
+    ],
+    "webRelease2Features": [
+      "Conditional rendering with wr-if/wr-then/wr-else",
+      "Loops with wr-for for news items and years",
+      "Component method calls with parameters",
+      "Element references with %elementName% syntax",
+      "Resource references for assets"
+    ]
+  }
+}

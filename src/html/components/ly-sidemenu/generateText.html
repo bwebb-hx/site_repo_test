@@ -1,0 +1,22 @@
+<nav class="ly-sidemenu" role="navigation" aria-label="年度選択">
+  <wr-for list="years" variable="yearItem">
+    <wr-if condition="yearItem.state == \"active\"">
+      <wr-then>
+        <button class="ly-sidemenu__button ly-sidemenu__button--active" aria-current="page">
+          <span class="ly-sidemenu__text">
+            <span class="ly-sidemenu__year">%yearItem.year%</span>
+            <span class="ly-sidemenu__unit">%yearItem.unit%</span>
+          </span>
+        </button>
+      </wr-then>
+      <wr-else>
+        <button class="ly-sidemenu__button" aria-label="%yearItem.year%%yearItem.unit%を選択">
+          <span class="ly-sidemenu__text">
+            <span class="ly-sidemenu__year">%yearItem.year%</span>
+            <span class="ly-sidemenu__unit">%yearItem.unit%</span>
+          </span>
+        </button>
+      </wr-else>
+    </wr-if>
+  </wr-for>
+</nav>

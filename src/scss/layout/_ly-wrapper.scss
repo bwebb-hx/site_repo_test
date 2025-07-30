@@ -1,0 +1,142 @@
+// ly-wrapper.scss - Main content wrapper with background
+@use '../foundation' as *;
+
+.ly-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 480px;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 720px;
+    height: 480px;
+    z-index: -1;
+    pointer-events: none;
+
+    // Base background layer
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color-neutral-gray-300;
+      background-image: url('/assets_v2/img/backgrounds/bg_rectangle_base.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    // Yellow gradient overlay
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        $color-primary-yellow-gradient-start 0%,
+        $color-primary-yellow-gradient-end 100%
+      );
+      background-image: url('/assets_v2/img/backgrounds/bg_gradient_yellow.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    // Custom background overlay (optional)
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+
+    // Large decorative ellipse
+    .bg-ellipse-large {
+      position: absolute;
+      top: -24px;
+      left: -72px;
+      width: 1440px;
+      height: 1280px;
+      background: linear-gradient(
+        180deg,
+        $color-semantic-background-secondary 0%,
+        $color-semantic-background-primary 50%
+      );
+      background-image: url('/assets_v2/img/backgrounds/bg_ellipse_large.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      z-index: -2;
+    }
+
+    // Small decorative ellipse
+    .bg-ellipse-small {
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      width: 1328px;
+      height: 1200px;
+      background: $color-semantic-background-primary;
+      background-image: url('/assets_v2/img/backgrounds/bg_ellipse_small.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    @media (max-width: $breakpoints-desktop) {
+      width: 100vw;
+      height: 300px;
+      left: 0;
+      transform: none;
+
+      .bg-ellipse-large,
+      .bg-ellipse-small {
+        transform: scale(0.7);
+      }
+    }
+
+    @media (max-width: $breakpoints-tablet) {
+      height: 200px;
+
+      .bg-ellipse-large,
+      .bg-ellipse-small {
+        transform: scale(0.5);
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // Disable background variant
+  &--no-background {
+    background: $color-semantic-background-primary;
+
+    .ly-wrapper__background {
+      display: none;
+    }
+  }
+}

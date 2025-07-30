@@ -1,0 +1,114 @@
+// ly-main.scss - Main content layout styles
+@use '../foundation' as *;
+
+.ly-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $layout-gap-lg;
+
+  &__container {
+    display: flex;
+    gap: $layout-gap-xl;
+    width: 100%;
+    max-width: $sizing-container-max-width-lg;
+    margin: 0 auto;
+    padding: 0 $layout-padding-container-mobile;
+
+    @media (min-width: $breakpoints-desktop) {
+      padding: 0 $layout-padding-container-desktop;
+    }
+
+    @media (max-width: $breakpoints-tablet) {
+      flex-direction: column;
+      gap: $layout-gap-lg;
+      padding: 0 $spacing-16;
+    }
+  }
+
+  &__sidebar {
+    flex-shrink: 0;
+    width: 248px;
+
+    @media (max-width: $breakpoints-tablet) {
+      width: 100%;
+      order: 2;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0; // Prevent flex item from overflowing
+
+    @media (max-width: $breakpoints-tablet) {
+      order: 1;
+    }
+  }
+
+  // Full width when sidebar is disabled
+  &--no-sidebar {
+    .ly-main__container {
+      justify-content: center;
+    }
+
+    .ly-main__content {
+      max-width: 872px; // Match Figma design
+    }
+
+    .ly-main__sidebar {
+      display: none;
+    }
+  }
+}
+
+// News section styles
+.ly-news-section {
+  width: 100%;
+}
+
+.ly-news-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+  width: 100%;
+}
+
+.ly-news-item {
+  width: 100%;
+
+  // Add subtle separation between items
+  &:not(:last-child) {
+    border-bottom: $border-width-1 solid $color-semantic-border-light;
+    padding-bottom: $spacing-8;
+    margin-bottom: $spacing-8;
+  }
+}
+
+.ly-news-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  text-align: center;
+
+  &__message {
+    font-family: $typography-font-family-primary;
+    font-size: $typography-font-size-base;
+    color: $color-semantic-text-primary;
+    margin: 0;
+    opacity: $opacity-60;
+  }
+}
+
+.ly-news-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-32;
+  padding-top: $spacing-24;
+  border-top: $border-width-1 solid $color-semantic-border-light;
+
+  // Pagination controls styles would go here
+  // Currently a placeholder for future enhancement
+}

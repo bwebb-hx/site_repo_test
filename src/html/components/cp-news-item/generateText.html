@@ -1,0 +1,30 @@
+<article class="cp-news__item">
+  <div class="cp-news__info">
+    <div class="inner">
+      <time class="cp-news__date">%date%</time>
+      <span class="cp-news-tag cp-news-tag--filled">%category%</span>
+    </div>
+  </div>
+  <div class="cp-news__text">
+    <wr-if condition="isNotNull(url)">
+      <wr-then>
+        <wr-if condition="isExternal == true">
+          <wr-then>
+            <a href="%url%" target="_blank" rel="noopener noreferrer" class="cp-news__link">
+              <p class="cp-news__title">%title%</p>
+              <span class="icon-open-in-new" aria-label="外部リンク"></span>
+            </a>
+          </wr-then>
+          <wr-else>
+            <a href="%url%" class="cp-news__link">
+              <p class="cp-news__title">%title%</p>
+            </a>
+          </wr-else>
+        </wr-if>
+      </wr-then>
+      <wr-else>
+        <p class="cp-news__title">%title%</p>
+      </wr-else>
+    </wr-if>
+  </div>
+</article>

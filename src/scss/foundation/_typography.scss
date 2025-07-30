@@ -1,0 +1,122 @@
+// _typography.scss - Typography base styles
+@use 'tokens' as *;
+
+// Base typography
+html {
+  font-size: 16px; // Base font size
+  
+  @media (max-width: $breakpoints-mobile) {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: $typography-font-family-primary, sans-serif;
+  font-weight: $typography-font-weight-regular;
+  font-size: $typography-font-size-base;
+  line-height: $typography-line-height-normal;
+  color: $color-semantic-text-primary;
+  background-color: $color-semantic-background-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Heading styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $typography-font-family-primary;
+  font-weight: $typography-font-weight-bold;
+  line-height: $typography-line-height-normal;
+  color: $color-semantic-text-primary;
+  margin: 0;
+}
+
+h1 {
+  font-size: $typography-font-size-2xl;
+  letter-spacing: $typography-letter-spacing-tight;
+}
+
+h2 {
+  font-size: $typography-font-size-xl;
+}
+
+h3 {
+  font-size: $typography-font-size-lg;
+}
+
+h4,
+h5,
+h6 {
+  font-size: $typography-font-size-base;
+}
+
+// Paragraph styles
+p {
+  margin: 0;
+  line-height: $typography-line-height-relaxed;
+}
+
+// Link styles
+a {
+  color: $color-semantic-text-primary;
+  text-decoration: none;
+  transition: color $animation-duration-fast $animation-easing-ease-out;
+
+  &:hover {
+    color: $color-primary-yellow-main;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 2px solid $color-semantic-border-accent;
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+}
+
+// Small text
+small {
+  font-size: $typography-font-size-xs;
+}
+
+// Strong text
+strong,
+b {
+  font-weight: $typography-font-weight-bold;
+}
+
+// Emphasis
+em,
+i {
+  font-style: italic;
+}
+
+// Code and monospace
+code,
+pre {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+}
+
+// Japanese text optimization
+:lang(ja) {
+  word-break: break-all;
+  line-break: strict;
+}
+
+// Font loading optimization
+@font-face {
+  font-family: 'BIZ UDPGothic';
+  font-display: swap;
+  // Font files would be defined here in production
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-display: swap;
+  // Font files would be defined here in production
+}

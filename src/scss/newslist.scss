@@ -1,0 +1,21 @@
+// newslist.scss - Page-specific entry point for news list template
+
+// Import layout styles for this page
+@use './layout/container';
+@use './layout/ly-header';
+@use './layout/ly-wrapper';
+@use './layout/ly-main';
+@use './layout/ly-sidemenu';
+@use './layout/ly-footer';
+
+// Import component styles for this page
+@use './components/cp-breadcrumb';
+@use './components/cp-h1';
+@use './components/cp-news-item';
+
+// Import utility styles
+@use './utilities/accessibility';
+@use './utilities/visibility';
+
+// Import page-specific styles
+@use './pages/newslist';

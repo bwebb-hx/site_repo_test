@@ -1,0 +1,74 @@
+// cp-h1.scss - Page title component styles
+@use '../foundation' as *;
+
+.cp-h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $sizing-container-max-width-lg;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: $spacing-32 0;
+
+  @media (max-width: $breakpoints-tablet) {
+    padding: $spacing-24 0;
+  }
+
+  @media (max-width: $breakpoints-mobile) {
+    padding: $spacing-16 0;
+  }
+
+  &__title {
+    font-family: $typography-font-family-primary;
+    font-weight: $typography-font-weight-bold;
+    font-size: $typography-font-size-2xl;
+    line-height: $typography-line-height-normal;
+    letter-spacing: $typography-letter-spacing-tight;
+    color: $color-semantic-text-primary;
+    text-align: center;
+    margin: 0;
+    
+    // Ensure proper line height calculation
+    line-height: 1.5428571701049805; // Match Figma design exactly
+
+    @media (max-width: $breakpoints-tablet) {
+      font-size: $typography-font-size-xl;
+    }
+
+    @media (max-width: $breakpoints-mobile) {
+      font-size: $typography-font-size-lg;
+      line-height: $typography-line-height-normal;
+    }
+  }
+
+  // Variant for smaller titles
+  &--small {
+    padding: $spacing-16 0;
+
+    .cp-h1__title {
+      font-size: $typography-font-size-xl;
+
+      @media (max-width: $breakpoints-tablet) {
+        font-size: $typography-font-size-lg;
+      }
+
+      @media (max-width: $breakpoints-mobile) {
+        font-size: $typography-font-size-base;
+      }
+    }
+  }
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    &__title {
+      color: $color-semantic-text-secondary;
+    }
+  }
+
+  // Focus styles for accessibility (in case H1 is interactive)
+  &__title:focus {
+    outline: 2px solid $color-semantic-border-accent;
+    outline-offset: 4px;
+    border-radius: $border-radius-sm;
+  }
+}

@@ -1,0 +1,396 @@
+// ============================================================
+// ly-footer - Footer layout component
+// ============================================================
+
+.ly-footer {
+  background-color: #4d4c47;
+  
+  // Decorative line with gradients
+  &__line {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-bottom: 2px;
+  }
+  
+  &__line-gradient {
+    height: 4px;
+    background-color: #4d4c47;
+    
+    &--1 {
+      opacity: 0.2;
+    }
+    
+    &--2 {
+      opacity: 0.4;
+    }
+    
+    &--3 {
+      opacity: 0.6;
+    }
+    
+    &--4 {
+      opacity: 0.8;
+    }
+  }
+  
+  // Desktop styles
+  &__content {
+    background-color: #4d4c47;
+    padding: 0 112px;
+  }
+  
+  &__links {
+    display: flex;
+    gap: 16px;
+    padding: 40px 16px;
+    width: 1216px;
+  }
+  
+  &__link-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+  
+  &__link-label {
+    color: #ffffff;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.3125%;
+    margin: 0;
+  }
+  
+  &__link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  &__link {
+    color: #d4d4d6;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.3125%;
+    text-decoration: none;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+  
+  &__copyright {
+    background-color: #1a1a18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 581px;
+    
+    p {
+      color: #ffffff;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 1;
+      margin: 0;
+    }
+  }
+  
+  // Mobile styles
+  &__mobile {
+    width: 390px;
+    padding-top: 48px;
+  }
+  
+  &__freedial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 32px;
+  }
+  
+  &__phone-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  &__phone-icon {
+    width: 55.93px;
+    height: 32px;
+  }
+  
+  &__freedial-logo {
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__phone-number {
+    color: rgba(0, 0, 0, 0.85);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+  }
+  
+  &__phone-hours {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 12%;
+    margin: 0;
+  }
+  
+  &__menu {
+    background-color: #4d4c47;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 0 0;
+  }
+  
+  &__menu-section {
+    width: 100%;
+    padding: 0 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  &__menu-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+  
+  &__menu-title {
+    color: #ffffff;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 12%;
+  }
+  
+  &__menu-icon {
+    width: 24px;
+    height: 24px;
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: #ffffff;
+    }
+  }
+  
+  &__menu-content {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 16px;
+    
+    .ly-footer__menu-section[aria-expanded="true"] & {
+      display: flex;
+    }
+  }
+  
+  &__menu-link {
+    color: #d4d4d6;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    text-decoration: none;
+    padding: 8px 0;
+    
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+  
+  &__submenu {
+    background-color: #4d4c47;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 0;
+  }
+  
+  &__submenu-link {
+    color: #ffffff;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.8;
+    letter-spacing: 12%;
+    text-decoration: none;
+    width: 358px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  &__service-links {
+    background-color: #cccbc0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    height: 25px;
+  }
+  
+  &__service-link {
+    color: rgba(0, 0, 0, 0.85);
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 12%;
+    text-align: center;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  &__separator {
+    color: #999999;
+    font-size: 14px;
+  }
+  
+  &__legal {
+    background-color: #4d4c47;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 32px 16px 16px;
+  }
+  
+  &__legal-link {
+    color: #ffffff;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.8;
+    letter-spacing: 12%;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  &__contact {
+    background-color: #4d4c47;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 16px 32px;
+  }
+  
+  &__contact-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 8px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    width: 100%;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  &__contact-icon,
+  &__contact-arrow {
+    width: 16px;
+    height: 16px;
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: #ffffff;
+    }
+  }
+  
+  &__contact-text {
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 12%;
+    text-align: center;
+    flex: 1;
+    padding: 0 8px;
+  }
+  
+  // Mobile copyright
+  .ly-footer__mobile &__copyright {
+    background-color: #1a1a18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 581px 128px;
+  }
+  
+  // Responsive breakpoints
+  @media (max-width: 768px) {
+    &__content {
+      padding: 0 16px;
+    }
+    
+    &__links {
+      flex-direction: column;
+      width: 100%;
+      gap: 24px;
+    }
+    
+    &__copyright {
+      padding: 16px;
+      
+      p {
+        text-align: center;
+      }
+    }
+  }
+}

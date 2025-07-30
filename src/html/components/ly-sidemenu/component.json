@@ -1,0 +1,22 @@
+{
+  "name": "ly-sidemenu",
+  "description": "A layout sidemenu component with year buttons supporting different states (default, hovered, active)",
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Generate the sidemenu HTML with dynamic year data",
+      "arguments": [
+        {
+          "name": "years",
+          "type": "array",
+          "description": "Array of year objects with properties: year (string), unit (string), state (string: 'default' | 'active')"
+        },
+        {
+          "name": "currentYear",
+          "type": "string",
+          "description": "The currently active year to highlight"
+        }
+      ]
+    }
+  ]
+}

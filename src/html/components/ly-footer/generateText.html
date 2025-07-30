@@ -1,0 +1,167 @@
+<footer class="ly-footer">
+  <wr-switch value="variant">
+    <wr-case value="pc">
+      <!-- Desktop Footer Layout -->
+      <div class="ly-footer__line">
+        <div class="ly-footer__line-gradient ly-footer__line-gradient--1"></div>
+        <div class="ly-footer__line-gradient ly-footer__line-gradient--2"></div>
+        <div class="ly-footer__line-gradient ly-footer__line-gradient--3"></div>
+        <div class="ly-footer__line-gradient ly-footer__line-gradient--4"></div>
+      </div>
+      
+      <div class="ly-footer__content">
+        <div class="ly-footer__links">
+          <wr-for list="linkGroups" variable="group">
+            <div class="ly-footer__link-group">
+              <h3 class="ly-footer__link-label">%group.label%</h3>
+              <div class="ly-footer__link-list">
+                <wr-for list="group.links" variable="link">
+                  <a href="%link.url%" class="ly-footer__link">%link.text%</a>
+                </wr-for>
+              </div>
+            </div>
+          </wr-for>
+        </div>
+      </div>
+      
+      <div class="ly-footer__copyright">
+        <p>Copyright © 2025 %companyName%</p>
+      </div>
+    </wr-case>
+    
+    <wr-case value="sp">
+      <!-- Mobile Footer Layout -->
+      <div class="ly-footer__mobile">
+        <!-- FreeDial Section -->
+        <div class="ly-footer__freedial">
+          <div class="ly-footer__phone-container">
+            <div class="ly-footer__phone-icon">
+              <!-- FreeDial logo SVG placeholder -->
+              <svg class="ly-footer__freedial-logo" viewBox="0 0 56 32" aria-hidden="true">
+                <path d="M0 0h48.42v31.6H0z" fill="#349839"/>
+                <circle cx="52.91" cy="28.98" r="3.02" fill="#231815"/>
+                <ellipse cx="52.91" cy="28.98" rx="1.37" ry="2" fill="#231815"/>
+                <path d="M0 4.92h48.42v22.3H0z" fill="#fff"/>
+              </svg>
+            </div>
+            <span class="ly-footer__phone-number">%phoneNumber%</span>
+          </div>
+          <p class="ly-footer__phone-hours">%phoneHours%</p>
+        </div>
+
+        <!-- Decorative Line -->
+        <div class="ly-footer__line">
+          <div class="ly-footer__line-gradient ly-footer__line-gradient--1"></div>
+          <div class="ly-footer__line-gradient ly-footer__line-gradient--2"></div>
+          <div class="ly-footer__line-gradient ly-footer__line-gradient--3"></div>
+          <div class="ly-footer__line-gradient ly-footer__line-gradient--4"></div>
+        </div>
+
+        <!-- Mobile Menu Sections -->
+        <div class="ly-footer__menu">
+          <wr-for list="menuSections" variable="section">
+            <div class="ly-footer__menu-section">
+              <button class="ly-footer__menu-heading" type="button" aria-expanded="false">
+                <span class="ly-footer__menu-title">%section.category%</span>
+                <span class="ly-footer__menu-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M6.42 8.42L12 14l5.58-5.58L19 10l-7 7-7-7z"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="ly-footer__menu-content">
+                <wr-for list="section.menuItems" variable="menuItem">
+                  <a href="%menuItem.url%" class="ly-footer__menu-link">%menuItem.text%</a>
+                </wr-for>
+              </div>
+            </div>
+          </wr-for>
+        </div>
+
+        <!-- Sub Menu Links -->
+        <div class="ly-footer__submenu">
+          <a href="/news/" class="ly-footer__submenu-link">お知らせ一覧</a>
+          <a href="/maintenance/" class="ly-footer__submenu-link">メンテナンスのお知らせ</a>
+          <a href="/area/" class="ly-footer__submenu-link">対応エリア</a>
+          <a href="/faq/" class="ly-footer__submenu-link">よくあるご質問</a>
+          <a href="/payment/" class="ly-footer__submenu-link">事前振込のお申し込み</a>
+        </div>
+
+        <!-- Service Type Links -->
+        <div class="ly-footer__service-links">
+          <a href="/personal/" class="ly-footer__service-link">個人の引越し</a>
+          <span class="ly-footer__separator" aria-hidden="true">|</span>
+          <a href="/corporate/" class="ly-footer__service-link">法人お引越し</a>
+          <span class="ly-footer__separator" aria-hidden="true">|</span>
+          <a href="/overseas/" class="ly-footer__service-link">海外への引越し</a>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="ly-footer__legal">
+          <a href="/terms/" class="ly-footer__legal-link">標準引越運送約款</a>
+          <span class="ly-footer__separator" aria-hidden="true">|</span>
+          <a href="/privacy/" class="ly-footer__legal-link">個人情報保護方針</a>
+          <span class="ly-footer__separator" aria-hidden="true">|</span>
+          <a href="/privacy-policy/" class="ly-footer__legal-link">特定個人情報の適正な取扱いに関する基本方針</a>
+          <span class="ly-footer__separator" aria-hidden="true">|</span>
+          <a href="/commercial-law/" class="ly-footer__legal-link">特定商取引法に基づく表記</a>
+          <span class="ly-footer__separator" aria-hidden="true">|</span>
+          <a href="/harassment/" class="ly-footer__legal-link">カスタマーハラスメント対応基本方針</a>
+          <span class="ly-footer__separator" aria-hidden="true">|</span>
+          <a href="/sitemap/" class="ly-footer__legal-link">サイトマップ</a>
+        </div>
+
+        <!-- Contact Button -->
+        <div class="ly-footer__contact">
+          <a href="/contact/" class="ly-footer__contact-btn">
+            <span class="ly-footer__contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16">
+                <path d="M2 2v12h12V2H2zm10 2v2H4V4h8zm-8 4h8v2H4V8zm0 4h6v2H4v-2z"/>
+              </svg>
+            </span>
+            <span class="ly-footer__contact-text">ラベルテキスト</span>
+            <span class="ly-footer__contact-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16">
+                <path d="M2.67 2.94h10.38v10.11L8.86 8.86l4.19-4.19z"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="ly-footer__copyright">
+          <p>Copyright © 2025 %companyName%</p>
+        </div>
+      </div>
+    </wr-case>
+    
+    <wr-default>
+      <!-- Default to PC version -->
+      <div class="ly-footer__line">
+        <div class="ly-footer__line-gradient ly-footer__line-gradient--1"></div>
+        <div class="ly-footer__line-gradient ly-footer__line-gradient--2"></div>
+        <div class="ly-footer__line-gradient ly-footer__line-gradient--3"></div>
+        <div class="ly-footer__line-gradient ly-footer__line-gradient--4"></div>
+      </div>
+      
+      <div class="ly-footer__content">
+        <div class="ly-footer__links">
+          <wr-for list="linkGroups" variable="group">
+            <div class="ly-footer__link-group">
+              <h3 class="ly-footer__link-label">%group.label%</h3>
+              <div class="ly-footer__link-list">
+                <wr-for list="group.links" variable="link">
+                  <a href="%link.url%" class="ly-footer__link">%link.text%</a>
+                </wr-for>
+              </div>
+            </div>
+          </wr-for>
+        </div>
+      </div>
+      
+      <div class="ly-footer__copyright">
+        <p>Copyright © 2025 %companyName%</p>
+      </div>
+    </wr-default>
+  </wr-switch>
+</footer>

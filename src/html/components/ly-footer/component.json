@@ -1,0 +1,46 @@
+{
+  "name": "ly-footer",
+  "description": "Website footer layout component with responsive design for desktop and mobile views",
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Renders the footer component with responsive design",
+      "arguments": [
+        {
+          "name": "variant",
+          "type": "string",
+          "description": "Display variant: 'pc' for desktop layout, 'sp' for mobile layout",
+          "default": "pc"
+        },
+        {
+          "name": "companyName",
+          "type": "string",
+          "description": "Company name for copyright notice",
+          "default": "Sakai Moving Service Co.Ltd"
+        },
+        {
+          "name": "phoneNumber",
+          "type": "string",
+          "description": "Free dial phone number for mobile variant",
+          "default": "0120-00-1141"
+        },
+        {
+          "name": "phoneHours",
+          "type": "string",
+          "description": "Phone service hours text",
+          "default": "午前8:00〜午後7:00 年中無休（年末年始を除く）"
+        },
+        {
+          "name": "linkGroups",
+          "type": "array",
+          "description": "Array of link group objects with label and links array for PC version"
+        },
+        {
+          "name": "menuSections",
+          "type": "array",
+          "description": "Array of menu section objects with category and menu items for mobile version"
+        }
+      ]
+    }
+  ]
+}

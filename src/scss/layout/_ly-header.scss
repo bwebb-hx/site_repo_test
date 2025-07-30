@@ -1,0 +1,59 @@
+// ly-header.scss - Header layout component styles
+@use '../foundation' as *;
+
+.ly-header {
+  position: relative;
+  background-color: $color-semantic-background-primary;
+  box-shadow: $box-shadow-base;
+  z-index: 100;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: $sizing-container-max-width-xl;
+    margin: 0 auto;
+    padding: $spacing-15 $layout-padding-container-mobile;
+
+    @media (min-width: $breakpoints-desktop) {
+      padding: $spacing-15 $layout-padding-container-desktop;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    
+    &-img {
+      width: $sizing-logo-width-base;
+      height: $sizing-logo-height-base;
+      object-fit: contain;
+
+      @media (max-width: $breakpoints-tablet) {
+        width: $sizing-logo-width-sm;
+        height: $sizing-logo-height-sm;
+      }
+    }
+
+    &-text {
+      font-family: $typography-font-family-primary;
+      font-weight: $typography-font-weight-bold;
+      font-size: $typography-font-size-lg;
+      color: $color-semantic-text-primary;
+      margin: 0;
+      line-height: $sizing-logo-height-base;
+
+      @media (max-width: $breakpoints-tablet) {
+        font-size: $typography-font-size-base;
+        line-height: $sizing-logo-height-sm;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: $breakpoints-mobile) {
+    &__container {
+      padding: $spacing-12 $spacing-16;
+    }
+  }
+}

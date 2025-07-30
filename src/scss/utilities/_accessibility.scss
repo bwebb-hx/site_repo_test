@@ -1,0 +1,66 @@
+// _accessibility.scss - Accessibility utility classes
+@use '../foundation' as *;
+
+// Skip link for keyboard navigation
+.ut-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $color-semantic-background-primary;
+  color: $color-semantic-text-primary;
+  padding: $spacing-8 $spacing-16;
+  text-decoration: none;
+  border: $border-width-2 solid $color-semantic-border-accent;
+  border-radius: $border-radius-sm;
+  font-family: $typography-font-family-primary;
+  font-size: $typography-font-size-xs;
+  font-weight: $typography-font-weight-bold;
+  z-index: 9999;
+  transition: top $animation-duration-fast $animation-easing-ease-out;
+
+  &:focus {
+    top: 6px;
+  }
+
+  &:hover {
+    background: $color-semantic-interactive-hover;
+  }
+}
+
+// Screen reader only content
+.ut-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Focus visible styles for better keyboard navigation
+.ut-focus-visible {
+  &:focus-visible {
+    outline: 2px solid $color-semantic-border-accent;
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+}
+
+// High contrast mode adjustments
+@media (prefers-contrast: high) {
+  .ut-skip-link {
+    background: $color-neutral-white;
+    color: $color-neutral-black;
+    border-color: $color-neutral-black;
+  }
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .ut-skip-link {
+    transition: none;
+  }
+}

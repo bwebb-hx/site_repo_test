@@ -1,0 +1,81 @@
+// Sidemenu Layout Component
+// Displays a vertical list of year buttons with different states
+
+.ly-sidemenu {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 248px;
+  
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    padding: 16px 8px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #7D7D83;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    
+    &:hover:not(&--active) {
+      background-color: #FCF698;
+    }
+    
+    &--active {
+      background-color: #FAED32;
+    }
+  }
+  
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    padding: 0 4px;
+  }
+  
+  &__year {
+    color: #08080A;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
+    text-align: center;
+    
+    .ly-sidemenu__button--active & {
+      font-weight: 600;
+    }
+  }
+  
+  &__unit {
+    color: #08080A;
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.31%;
+    text-align: center;
+    
+    .ly-sidemenu__button--active & {
+      font-weight: 700;
+      line-height: 1.8;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .ly-sidemenu {
+    width: 100%;
+    
+    &__button {
+      height: auto;
+      min-height: 48px;
+      padding: 12px 8px;
+    }
+  }
+}

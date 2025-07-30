@@ -1,0 +1,37 @@
+{
+  "name": "cp-news-item",
+  "description": "A news list item component with date, category tag, title, and external link",
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Renders the news item component",
+      "arguments": [
+        {
+          "name": "date",
+          "type": "string",
+          "description": "The publication date of the news item"
+        },
+        {
+          "name": "category",
+          "type": "string", 
+          "description": "The category/tag for the news item"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "The title/headline of the news item"
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "The URL the news item links to"
+        },
+        {
+          "name": "isExternal",
+          "type": "boolean",
+          "description": "Whether the link opens in a new window/tab"
+        }
+      ]
+    }
+  ]
+}

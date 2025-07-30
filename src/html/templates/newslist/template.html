@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%pageTitle% | %companyName%</title>
+    <meta name="description" content="%metaDescription%">
+    <wr-if condition="isNotNull(metaKeywords)">
+        <meta name="keywords" content="%metaKeywords%">
+    </wr-if>
+    <meta property="og:url" content="%pageURL()%">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="%ogTitle%">
+    <meta property="og:description" content="%ogDescription%">
+    <meta property="og:site_name" content="%companyName%">
+    <meta property="og:image" content="%ogImage%">
+    <link rel="canonical" href="%pageURL()%">
+    <link rel="icon" href="/assets_v2/img/common/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets_v2/img/common/apple-touch-icon.png">
+    
+    <!-- CSS Includes -->
+    <link rel="stylesheet" href="/assets_v2/css/common.css">
+    <link rel="stylesheet" href="/assets_v2/css/newslist.css">
+</head>
+<body>
+    <wr-- Skip Link for Accessibility -->
+    <a class="ut-skip-link" href="#main-content">メインコンテンツへスキップ</a>
+
+    <wr-- Header Layout -->
+    <header class="ly-header" role="banner">
+        <div class="ly-header__container">
+            <div class="ly-header__logo">
+                <wr-if condition="isNotNull(logoImage)">
+                    <wr-then>
+                        <img src="%logoImage%" alt="%companyName%" class="ly-header__logo-img" width="211" height="48">
+                    </wr-then>
+                    <wr-else>
+                        <h1 class="ly-header__logo-text">%companyName%</h1>
+                    </wr-else>
+                </wr-if>
+            </div>
+        </div>
+    </header>
+
+    <wr-- Breadcrumb Navigation -->
+    <nav class="cp-breadcrumb" aria-label="パンくずリスト">
+        <div class="cp-breadcrumb__container">
+            <div class="cp-breadcrumb__item">
+                <img src="/assets_v2/img/icons/icon_home_filled.svg" alt="" class="cp-breadcrumb__icon" width="16" height="16" aria-hidden="true">
+                <a href="/" class="cp-breadcrumb__link">%breadcrumbHome%</a>
+            </div>
+            <div class="cp-breadcrumb__separator" aria-hidden="true">
+                <img src="/assets_v2/img/icons/icon_arrow_right.svg" alt="" class="cp-breadcrumb__separator-icon" width="16" height="16">
+            </div>
+            <div class="cp-breadcrumb__item cp-breadcrumb__item--current">
+                <span class="cp-breadcrumb__current" aria-current="page">%pageTitle%</span>
+            </div>
+        </div>
+    </nav>
+
+    <wr-- Main Content Wrapper with Background -->
+    <div class="ly-wrapper">
+        <wr-if condition="showBackground == true">
+            <div class="ly-wrapper__background" aria-hidden="true">
+                <wr-if condition="isNotNull(backgroundOverlay)">
+                    <div class="ly-wrapper__background-overlay" style="background-image: url('%backgroundOverlay%');"></div>
+                </wr-if>
+            </div>
+        </wr-if>
+        
+        <div class="ly-wrapper__content">
+            <div class="ly-container">
+                <wr-- Page Title Section -->
+                <div class="cp-h1">
+                    <h1 class="cp-h1__title" id="main-content">%pageTitle%</h1>
+                </div>
+
+                <wr-- Main Content Layout -->
+                <div class="ly-main">
+                    <div class="ly-main__container">
+                        <wr-- Sidebar with Year Filter -->
+                        <wr-if condition="enableYearFilter == true">
+                            <aside class="ly-main__sidebar" role="complementary" aria-label="年度フィルター">
+                                %ly-sidemenu.generateText(availableYears, currentYear)%
+                            </aside>
+                        </wr-if>
+
+                        <wr-- Main Content Area -->
+                        <main class="ly-main__content" role="main">
+                            <wr-- News List Section -->
+                            <section class="ly-news-section">
+                                <wr-if condition="isNotNull(newsItems) && count(newsItems) > 0">
+                                    <wr-then>
+                                        <div class="ly-news-list" role="list">
+                                            <wr-for list="newsItems" variable="newsItem" count="itemIndex">
+                                                <div class="ly-news-item" role="listitem">
+                                                    %cp-news-item.generateText(newsItem.date, newsItem.category, newsItem.title, newsItem.url, newsItem.isExternal)%
+                                                </div>
+                                            </wr-for>
+                                        </div>
+                                        
+                                        <wr-- Pagination or Load More (Future Enhancement) -->
+                                        <wr-if condition="count(newsItems) >= 10">
+                                            <div class="ly-news-pagination">
+                                                <wr-- Pagination controls would go here -->
+                                            </div>
+                                        </wr-if>
+                                    </wr-then>
+                                    <wr-else>
+                                        <div class="ly-news-empty">
+                                            <p class="ly-news-empty__message">%noNewsMessage%</p>
+                                        </div>
+                                    </wr-else>
+                                </wr-if>
+                            </section>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <wr-- Footer Layout Component -->
+    %ly-footer.generateText("pc", companyName, footerLinkGroups)%
+
+    <wr-- JavaScript -->
+    <script src="/assets_v2/js/common.js" defer></script>
+    <script src="/assets_v2/js/newslist.js" defer></script>
+
+    <wr-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "%breadcrumbHome%",
+          "item": "%siteURL()%"
+        },
+        {
+          "@type": "ListItem", 
+          "position": 2,
+          "name": "%pageTitle%",
+          "item": "%pageURL()%"
+        }
+      ]
+    }
+    </script>
+
+    <wr-if condition="isNotNull(newsItems) && count(newsItems) > 0">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "%pageTitle%",
+          "description": "%metaDescription%",
+          "itemListElement": [
+            <wr-for list="newsItems" variable="newsItem" count="itemIndex">
+            {
+              "@type": "Article",
+              "position": %itemIndex%,
+              "headline": "%newsItem.title%",
+              "datePublished": "%formatDate(newsItem.date, \"yyyy-MM-dd\")%",
+              "author": {
+                "@type": "Organization",
+                "name": "%companyName%"
+              },
+              "publisher": {
+                "@type": "Organization", 
+                "name": "%companyName%"
+              }
+            }<wr-if condition="itemIndex < count(newsItems)">,</wr-if>
+            </wr-for>
+          ]
+        }
+        </script>
+    </wr-if>
+</body>
+</html>

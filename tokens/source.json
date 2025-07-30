@@ -1,0 +1,563 @@
+{
+  "color": {
+    "primary": {
+      "yellow": {
+        "main": {
+          "value": "#FAED32",
+          "type": "color",
+          "description": "Primary brand yellow color used for accents and highlights"
+        },
+        "gradient": {
+          "start": {
+            "value": "#FAED32",
+            "type": "color"
+          },
+          "end": {
+            "value": "#FCFAE6",
+            "type": "color"
+          }
+        }
+      }
+    },
+    "neutral": {
+      "white": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Pure white for backgrounds and text"
+      },
+      "black": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Pure black for text"
+      },
+      "gray": {
+        "900": {
+          "value": "#0F1014",
+          "type": "color",
+          "description": "Darkest gray for buttons and high contrast elements"
+        },
+        "800": {
+          "value": "#1A1A18",
+          "type": "color",
+          "description": "Dark gray for footer backgrounds"
+        },
+        "700": {
+          "value": "#4D4C47",
+          "type": "color",
+          "description": "Medium dark gray for borders and text"
+        },
+        "600": {
+          "value": "#7D7D83",
+          "type": "color",
+          "description": "Medium gray for borders and inactive states"
+        },
+        "500": {
+          "value": "#CCCBC0",
+          "type": "color",
+          "description": "Light gray for subtle backgrounds"
+        },
+        "400": {
+          "value": "#D4D4D6",
+          "type": "color",
+          "description": "Light gray for borders"
+        },
+        "300": {
+          "value": "#D9D9D9",
+          "type": "color",
+          "description": "Very light gray for backgrounds"
+        },
+        "200": {
+          "value": "#E9E9EA",
+          "type": "color",
+          "description": "Light gray for hover states and backgrounds"
+        },
+        "100": {
+          "value": "#F2F1E9",
+          "type": "color",
+          "description": "Very light cream background for breadcrumbs"
+        }
+      }
+    },
+    "semantic": {
+      "text": {
+        "primary": {
+          "value": "rgba(0, 0, 0, 0.85)",
+          "type": "color",
+          "description": "Primary text color with opacity"
+        },
+        "secondary": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Secondary text color"
+        },
+        "on-dark": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Text color on dark backgrounds"
+        }
+      },
+      "background": {
+        "primary": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Primary background color"
+        },
+        "secondary": {
+          "value": "#F2F1E9",
+          "type": "color",
+          "description": "Secondary background color"
+        },
+        "dark": {
+          "value": "#4D4C47",
+          "type": "color",
+          "description": "Dark background color"
+        }
+      },
+      "border": {
+        "default": {
+          "value": "#7D7D83",
+          "type": "color",
+          "description": "Default border color"
+        },
+        "light": {
+          "value": "#D4D4D6",
+          "type": "color",
+          "description": "Light border color"
+        },
+        "accent": {
+          "value": "#FAED32",
+          "type": "color",
+          "description": "Accent border color"
+        }
+      },
+      "interactive": {
+        "hover": {
+          "value": "#FCF698",
+          "type": "color",
+          "description": "Hover state background color"
+        },
+        "active": {
+          "value": "#FAED32",
+          "type": "color",
+          "description": "Active state background color"
+        }
+      }
+    }
+  },
+  "typography": {
+    "font-family": {
+      "primary": {
+        "value": "'BIZ UDPGothic'",
+        "type": "fontFamily",
+        "description": "Primary Japanese font family"
+      },
+      "secondary": {
+        "value": "'Roboto'",
+        "type": "fontFamily",
+        "description": "Secondary font family for latin text"
+      }
+    },
+    "font-weight": {
+      "regular": {
+        "value": 400,
+        "type": "fontWeight"
+      },
+      "bold": {
+        "value": 700,
+        "type": "fontWeight"
+      }
+    },
+    "font-size": {
+      "xs": {
+        "value": "12px",
+        "type": "fontSize",
+        "description": "Extra small text"
+      },
+      "base": {
+        "value": "16px",
+        "type": "fontSize",
+        "description": "Base font size"
+      },
+      "lg": {
+        "value": "20px",
+        "type": "fontSize",
+        "description": "Large text"
+      },
+      "xl": {
+        "value": "24px",
+        "type": "fontSize",
+        "description": "Extra large text"
+      },
+      "2xl": {
+        "value": "28px",
+        "type": "fontSize",
+        "description": "2x large text for headings"
+      }
+    },
+    "line-height": {
+      "tight": {
+        "value": "1em",
+        "type": "lineHeight",
+        "description": "Tight line height"
+      },
+      "normal": {
+        "value": "1.5em",
+        "type": "lineHeight",
+        "description": "Normal line height"
+      },
+      "relaxed": {
+        "value": "1.8em",
+        "type": "lineHeight",
+        "description": "Relaxed line height for readability"
+      }
+    },
+    "letter-spacing": {
+      "tight": {
+        "value": "0.17857143%",
+        "type": "letterSpacing"
+      },
+      "normal": {
+        "value": "0.4166666728%",
+        "type": "letterSpacing"
+      }
+    }
+  },
+  "spacing": {
+    "0": {
+      "value": "0px",
+      "type": "spacing"
+    },
+    "1": {
+      "value": "1px",
+      "type": "spacing"
+    },
+    "2": {
+      "value": "2px",
+      "type": "spacing"
+    },
+    "4": {
+      "value": "4px",
+      "type": "spacing"
+    },
+    "8": {
+      "value": "8px",
+      "type": "spacing"
+    },
+    "10": {
+      "value": "10px",
+      "type": "spacing"
+    },
+    "12": {
+      "value": "12px",
+      "type": "spacing"
+    },
+    "14": {
+      "value": "14px",
+      "type": "spacing"
+    },
+    "15": {
+      "value": "15px",
+      "type": "spacing"
+    },
+    "16": {
+      "value": "16px",
+      "type": "spacing"
+    },
+    "20": {
+      "value": "20px",
+      "type": "spacing"
+    },
+    "24": {
+      "value": "24px",
+      "type": "spacing"
+    },
+    "32": {
+      "value": "32px",
+      "type": "spacing"
+    },
+    "40": {
+      "value": "40px",
+      "type": "spacing"
+    },
+    "48": {
+      "value": "48px",
+      "type": "spacing"
+    },
+    "64": {
+      "value": "64px",
+      "type": "spacing"
+    },
+    "80": {
+      "value": "80px",
+      "type": "spacing"
+    },
+    "112": {
+      "value": "112px",
+      "type": "spacing"
+    },
+    "128": {
+      "value": "128px",
+      "type": "spacing"
+    }
+  },
+  "sizing": {
+    "icon": {
+      "sm": {
+        "value": "16px",
+        "type": "sizing",
+        "description": "Small icon size"
+      },
+      "base": {
+        "value": "24px",
+        "type": "sizing",
+        "description": "Base icon size"
+      },
+      "lg": {
+        "value": "32px",
+        "type": "sizing",
+        "description": "Large icon size"
+      }
+    },
+    "button": {
+      "height": {
+        "sm": {
+          "value": "32px",
+          "type": "sizing"
+        },
+        "base": {
+          "value": "44px",
+          "type": "sizing"
+        },
+        "lg": {
+          "value": "48px",
+          "type": "sizing"
+        },
+        "xl": {
+          "value": "64px",
+          "type": "sizing"
+        }
+      }
+    },
+    "container": {
+      "max-width": {
+        "sm": {
+          "value": "390px",
+          "type": "sizing",
+          "description": "Mobile container max width"
+        },
+        "lg": {
+          "value": "1184px",
+          "type": "sizing",
+          "description": "Desktop content max width"
+        },
+        "xl": {
+          "value": "1440px",
+          "type": "sizing",
+          "description": "Desktop full width"
+        }
+      }
+    },
+    "logo": {
+      "width": {
+        "sm": {
+          "value": "141px",
+          "type": "sizing",
+          "description": "Small logo width for mobile"
+        },
+        "base": {
+          "value": "210.92px",
+          "type": "sizing",
+          "description": "Base logo width for desktop"
+        }
+      },
+      "height": {
+        "sm": {
+          "value": "32px",
+          "type": "sizing",
+          "description": "Small logo height for mobile"
+        },
+        "base": {
+          "value": "48px",
+          "type": "sizing",
+          "description": "Base logo height for desktop"
+        }
+      }
+    },
+    "breadcrumb": {
+      "height": {
+        "value": "44px",
+        "type": "sizing",
+        "description": "Fixed height for breadcrumb component"
+      }
+    }
+  },
+  "border-radius": {
+    "none": {
+      "value": "0px",
+      "type": "borderRadius"
+    },
+    "sm": {
+      "value": "5px",
+      "type": "borderRadius"
+    },
+    "base": {
+      "value": "8px",
+      "type": "borderRadius"
+    },
+    "full": {
+      "value": "9999px",
+      "type": "borderRadius",
+      "description": "Fully rounded borders for circular elements"
+    }
+  },
+  "border-width": {
+    "0": {
+      "value": "0px",
+      "type": "borderWidth"
+    },
+    "1": {
+      "value": "1px",
+      "type": "borderWidth"
+    },
+    "2": {
+      "value": "2px",
+      "type": "borderWidth"
+    },
+    "4": {
+      "value": "4px",
+      "type": "borderWidth"
+    }
+  },
+  "opacity": {
+    "20": {
+      "value": "0.2",
+      "type": "opacity"
+    },
+    "40": {
+      "value": "0.4",
+      "type": "opacity"
+    },
+    "60": {
+      "value": "0.6",
+      "type": "opacity"
+    },
+    "80": {
+      "value": "0.8",
+      "type": "opacity"
+    },
+    "85": {
+      "value": "0.85",
+      "type": "opacity"
+    }
+  },
+  "box-shadow": {
+    "sm": {
+      "value": "0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
+      "type": "boxShadow",
+      "description": "Small shadow"
+    },
+    "base": {
+      "value": "0px 2px 8px 0px rgba(0, 0, 0, 0.1)",
+      "type": "boxShadow",
+      "description": "Base shadow for header"
+    },
+    "lg": {
+      "value": "0px 4px 8px 0px rgba(0, 0, 0, 0.08), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 8px 16px 0px rgba(0, 0, 0, 0.08)",
+      "type": "boxShadow",
+      "description": "Large layered shadow for floating elements"
+    }
+  },
+  "breakpoints": {
+    "mobile": {
+      "value": "390px",
+      "type": "breakpoint",
+      "description": "Mobile breakpoint"
+    },
+    "tablet": {
+      "value": "768px",
+      "type": "breakpoint",
+      "description": "Tablet breakpoint"
+    },
+    "desktop": {
+      "value": "1440px",
+      "type": "breakpoint",
+      "description": "Desktop breakpoint"
+    }
+  },
+  "layout": {
+    "gap": {
+      "xs": {
+        "value": "4px",
+        "type": "spacing"
+      },
+      "sm": {
+        "value": "8px",
+        "type": "spacing"
+      },
+      "base": {
+        "value": "16px",
+        "type": "spacing"
+      },
+      "lg": {
+        "value": "32px",
+        "type": "spacing"
+      },
+      "xl": {
+        "value": "64px",
+        "type": "spacing"
+      }
+    },
+    "padding": {
+      "container": {
+        "mobile": {
+          "value": "16px",
+          "type": "spacing",
+          "description": "Mobile container padding"
+        },
+        "desktop": {
+          "value": "24px",
+          "type": "spacing",
+          "description": "Desktop container padding"
+        }
+      },
+      "section": {
+        "mobile": {
+          "value": "48px 0px 0px",
+          "type": "spacing",
+          "description": "Mobile section padding"
+        },
+        "desktop": {
+          "value": "80px 0px 0px",
+          "type": "spacing",
+          "description": "Desktop section padding"
+        }
+      }
+    }
+  },
+  "animation": {
+    "duration": {
+      "fast": {
+        "value": "150ms",
+        "type": "duration"
+      },
+      "base": {
+        "value": "300ms",
+        "type": "duration"
+      },
+      "slow": {
+        "value": "500ms",
+        "type": "duration"
+      }
+    },
+    "easing": {
+      "ease-in-out": {
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "type": "cubicBezier"
+      },
+      "ease-out": {
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "type": "cubicBezier"
+      }
+    }
+  }
+}
