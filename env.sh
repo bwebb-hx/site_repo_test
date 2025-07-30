@@ -1,0 +1,2 @@
+export FIGMA_COMPONENT="https://www.figma.com/design/FiyWtvfR1qQ98b4KMmxjDj/%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E5%AE%9F%E9%A8%93?node-id=19-1789&m=dev"
+export FIGMA_TEMPLATE="https://www.figma.com/design/FiyWtvfR1qQ98b4KMmxjDj/%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E5%AE%9F%E9%A8%93?node-id=1-1796&m=dev"
