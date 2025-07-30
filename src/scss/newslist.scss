@@ -1,0 +1,16 @@
+// Page-specific entry point for newslist template
+// This file imports all necessary styles for the newslist page
+
+// Layout components
+@use './layout/header';
+@use './layout/footer';
+
+// UI components
+@use './components/breadcrumb';
+@use './components/page-title';
+@use './components/logo';
+@use './components/background-image';
+@use './components/arrow-icon';
+
+// Page-specific styles
+@use './pages/newslist';

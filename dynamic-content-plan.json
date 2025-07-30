@@ -1,0 +1,314 @@
+{
+  "editableTextContent": {
+    "pageLevel": [
+      {
+        "elementName": "pageTitle",
+        "webrelease2Expression": "%pageTitle%",
+        "figmaSource": "H1 component (18:1323)",
+        "currentValue": "新着情報・お知らせ",
+        "elementType": "single_line_text",
+        "description": "Main page heading",
+        "required": true,
+        "usage": "Used in page title component and browser title",
+        "defaultValue": "新着情報・お知らせ"
+      },
+      {
+        "elementName": "metaDescription",
+        "webrelease2Expression": "%metaDescription%",
+        "figmaSource": "Not visible in design",
+        "currentValue": "",
+        "elementType": "multi_line_text",
+        "description": "SEO meta description for the page",
+        "required": false,
+        "usage": "Used in HTML head meta tag",
+        "defaultValue": "最新の新着情報・お知らせをご覧ください。"
+      }
+    ],
+    "componentLevel": [
+      {
+        "componentName": "breadcrumb",
+        "elements": [
+          {
+            "elementName": "homeText",
+            "webrelease2Expression": "%homeText%",
+            "figmaSource": "Breadcrumb HOME text (I19:1379;11:1963)",
+            "currentValue": "HOME",
+            "elementType": "single_line_text",
+            "description": "Text for home breadcrumb link",
+            "required": true,
+            "defaultValue": "HOME"
+          },
+          {
+            "elementName": "currentPageText",
+            "webrelease2Expression": "%currentPageText%",
+            "figmaSource": "Breadcrumb current page (I19:1379;11:1969)",
+            "currentValue": "新着情報・お知らせ",
+            "elementType": "single_line_text",
+            "description": "Current page name in breadcrumb",
+            "required": true,
+            "defaultValue": "新着情報・お知らせ"
+          },
+          {
+            "elementName": "homeUrl",
+            "webrelease2Expression": "%homeUrl%",
+            "figmaSource": "Not visible in design",
+            "currentValue": "/",
+            "elementType": "single_line_text",
+            "description": "URL for home breadcrumb link",
+            "required": true,
+            "defaultValue": "/"
+          }
+        ]
+      },
+      {
+        "componentName": "logo",
+        "elements": [
+          {
+            "elementName": "logoAltText",
+            "webrelease2Expression": "%logoAltText%",
+            "figmaSource": "Logo component (I19:1447;11:742)",
+            "currentValue": "",
+            "elementType": "single_line_text",
+            "description": "Alt text for logo image",
+            "required": true,
+            "defaultValue": "Sakai Moving Service"
+          },
+          {
+            "elementName": "logoUrl",
+            "webrelease2Expression": "%logoUrl%",
+            "figmaSource": "Not visible in design",
+            "currentValue": "/",
+            "elementType": "single_line_text",
+            "description": "URL for logo link",
+            "required": true,
+            "defaultValue": "/"
+          }
+        ]
+      },
+      {
+        "componentName": "footer",
+        "elements": [
+          {
+            "elementName": "copyrightText",
+            "webrelease2Expression": "%copyrightText%",
+            "figmaSource": "Footer copyright (I19:1541;11:1857)",
+            "currentValue": "Copyright © 2025 Sakai Moving Service Co.Ltd",
+            "elementType": "single_line_text",
+            "description": "Copyright notice text",
+            "required": true,
+            "defaultValue": "Copyright © 2025 Sakai Moving Service Co.Ltd"
+          }
+        ]
+      }
+    ],
+    "dynamicContent": [
+      {
+        "elementName": "newsArticles",
+        "webrelease2Expression": "%newsArticles%",
+        "figmaSource": "Empty container (1:1816)",
+        "elementType": "table_of_contents",
+        "description": "Array of news article objects",
+        "required": false,
+        "structure": {
+          "articleTitle": "single_line_text",
+          "articleDate": "date_time",
+          "articleSummary": "multi_line_text",
+          "articleUrl": "single_line_text",
+          "articleCategory": "single_line_text",
+          "featured": "checkbox"
+        },
+        "usage": "Used in wr-for loop to generate news list items"
+      }
+    ]
+  },
+  "uploadableImages": {
+    "componentImages": [
+      {
+        "elementName": "logoImage",
+        "webrelease2Expression": "%logoImage%",
+        "figmaSource": "Logo brand component (1:21)",
+        "currentDimensions": {
+          "width": "210.92px",
+          "height": "48px"
+        },
+        "elementType": "image",
+        "description": "Company/site logo image",
+        "required": true,
+        "formats": ["PNG", "SVG", "WebP"],
+        "usage": "Displayed in header component",
+        "altTextElement": "logoAltText"
+      },
+      {
+        "elementName": "backgroundImage",
+        "webrelease2Expression": "%backgroundImage%",
+        "figmaSource": "Background PC component (1:9)",
+        "currentDimensions": {
+          "width": "720px",
+          "height": "480px"
+        },
+        "elementType": "image",
+        "description": "Background decorative image for main content area",
+        "required": false,
+        "formats": ["WebP", "PNG", "JPG"],
+        "usage": "Used as background in main wrapper with gradient overlay",
+        "positioning": "absolute",
+        "overlayGradient": true
+      }
+    ],
+    "dynamicImages": [
+      {
+        "elementName": "articleImage",
+        "webrelease2Expression": "%newsArticles[].articleImage%",
+        "figmaSource": "Not present in design - future enhancement",
+        "elementType": "image",
+        "description": "Optional thumbnail image for each news article",
+        "required": false,
+        "formats": ["WebP", "PNG", "JPG"],
+        "recommendedDimensions": {
+          "width": "300px",
+          "height": "200px"
+        },
+        "usage": "Thumbnail image in news article list items",
+        "altTextSource": "articleTitle"
+      }
+    ]
+  },
+  "conditionalContent": {
+    "optionalSections": [
+      {
+        "sectionName": "backgroundImage",
+        "condition": "isNotNull(backgroundImage)",
+        "webrelease2Implementation": "<wr-if condition=\"isNotNull(backgroundImage)\">%backgroundImageComponent.selectedValue().generateText()%</wr-if>",
+        "description": "Background image is optional - page works without it",
+        "fallbackBehavior": "Clean layout without background decoration"
+      },
+      {
+        "sectionName": "newsArticlesList",
+        "condition": "count(newsArticles) > 0",
+        "webrelease2Implementation": "<wr-if condition=\"count(newsArticles) > 0\"><wr-for list=\"newsArticles\" variable=\"article\">%newsItemComponent.selectedValue().generateText()%</wr-for></wr-if>",
+        "description": "News list only displays if articles exist",
+        "fallbackBehavior": "Show 'No articles available' message"
+      },
+      {
+        "sectionName": "articleThumbnails",
+        "condition": "isNotNull(article.articleImage)",
+        "webrelease2Implementation": "<wr-if condition=\"isNotNull(article.articleImage)\"><img src=\"%article.articleImage%\" alt=\"%article.articleTitle%\" /></wr-if>",
+        "description": "Article thumbnails are optional per article",
+        "fallbackBehavior": "Text-only article display"
+      },
+      {
+        "sectionName": "footerNavigation",
+        "condition": "count(footerLinks) > 0",
+        "webrelease2Implementation": "<wr-if condition=\"count(footerLinks) > 0\"><!-- footer nav links --></wr-if>",
+        "description": "Footer navigation links are optional",
+        "fallbackBehavior": "Footer shows only copyright"
+      }
+    ],
+    "conditionalStates": [
+      {
+        "stateName": "featuredArticles",
+        "condition": "article.featured == true",
+        "webrelease2Implementation": "<wr-if condition=\"article.featured == true\"><!-- featured styling --></wr-if>",
+        "description": "Articles can be marked as featured for special styling",
+        "visualDifference": "Different background color or border"
+      },
+      {
+        "stateName": "emptyState",
+        "condition": "count(newsArticles) == 0",
+        "webrelease2Implementation": "<wr-if condition=\"count(newsArticles) == 0\"><p class=\"empty-state\">現在、お知らせはありません。</p></wr-if>",
+        "description": "Display message when no news articles exist",
+        "message": "現在、お知らせはありません。"
+      }
+    ]
+  },
+  "loopContent": {
+    "primaryLoops": [
+      {
+        "loopName": "newsArticlesList",
+        "elementName": "newsArticles",
+        "webrelease2Implementation": "<wr-for list=\"newsArticles\" variable=\"article\" count=\"i\">%newsItemComponent.selectedValue().generateText()%</wr-for>",
+        "itemVariable": "article",
+        "counterVariable": "i",
+        "description": "Main loop for displaying news articles",
+        "itemStructure": {
+          "articleTitle": "%article.articleTitle%",
+          "articleDate": "%formatDate(article.articleDate, \"yyyy年MM月dd日\")%",
+          "articleSummary": "%article.articleSummary%",
+          "articleUrl": "%article.articleUrl%",
+          "articleCategory": "%article.articleCategory%",
+          "articleImage": "%article.articleImage%",
+          "featured": "%article.featured%"
+        },
+        "sortingOptions": {
+          "byDate": "Sort by article date (newest first)",
+          "byCategory": "Group by category",
+          "featuredFirst": "Show featured articles first"
+        }
+      },
+      {
+        "loopName": "breadcrumbPath",
+        "elementName": "breadcrumbItems",
+        "webrelease2Implementation": "<wr-for list=\"breadcrumbItems\" variable=\"crumb\" count=\"i\"><wr-if condition=\"i > 1\">%arrowIconComponent.selectedValue().generateText()%</wr-if><a href=\"%crumb.url%\">%crumb.text%</a></wr-for>",
+        "itemVariable": "crumb",
+        "counterVariable": "i",
+        "description": "Loop for building breadcrumb navigation path",
+        "itemStructure": {
+          "text": "%crumb.text%",
+          "url": "%crumb.url%",
+          "current": "%crumb.current%"
+        },
+        "conditionalLogic": "Add arrow separator between items (not before first item)"
+      }
+    ],
+    "utilityLoops": [
+      {
+        "loopName": "footerDecorativeLines",
+        "elementName": "decorativeLines",
+        "webrelease2Implementation": "<wr-for times=\"4\" variable=\"line\" count=\"i\"><div class=\"decorative-line\" style=\"opacity: %0.2 * i%\"></div></wr-for>",
+        "description": "Create decorative lines with increasing opacity",
+        "usage": "Footer decoration with 4 lines at different opacities"
+      }
+    ],
+    "paginationSupport": [
+      {
+        "feature": "articleLimiting",
+        "implementation": "<wr-for list=\"newsArticles\" variable=\"article\" count=\"i\"><wr-break condition=\"i > articlesPerPage\"/>%newsItemComponent.selectedValue().generateText()%</wr-for>",
+        "elementName": "articlesPerPage",
+        "description": "Limit number of articles displayed per page",
+        "defaultValue": 10
+      },
+      {
+        "feature": "loadMoreSupport",
+        "implementation": "JavaScript-based load more functionality",
+        "description": "Progressive loading of additional articles",
+        "futureEnhancement": true
+      }
+    ]
+  },
+  "templateElements": {
+    "requiredElements": [
+      "pageTitle",
+      "logoImage",
+      "logoAltText",
+      "copyrightText"
+    ],
+    "optionalElements": [
+      "backgroundImage",
+      "newsArticles",
+      "metaDescription",
+      "footerLinks"
+    ],
+    "arrayElements": [
+      "newsArticles",
+      "breadcrumbItems",
+      "footerLinks"
+    ],
+    "selectorElements": [
+      "headerComponent",
+      "breadcrumbComponent", 
+      "pageTitleComponent",
+      "newsItemComponent",
+      "footerComponent"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+// Foundation styles - centralized imports
+// This file forwards all foundational styles using @forward
+
+@forward 'tokens';
+@forward 'reset';
+@forward 'typography';
+@forward 'globals';

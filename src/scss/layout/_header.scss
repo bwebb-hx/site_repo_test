@@ -1,0 +1,49 @@
+// Header layout component
+@use '../foundation' as *;
+
+.ly-header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: $spacing-10;
+  padding: $spacing-15 $spacing-24;
+  background-color: $color-base-white;
+  box-shadow: $shadow-header;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+  @include mobile {
+    padding: $spacing-12 $spacing-16;
+    gap: $spacing-8;
+  }
+  
+  @include desktop {
+    padding: $spacing-20 $spacing-32;
+  }
+}
+
+// Header content wrapper
+.ly-header__content {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Logo area
+.ly-header__logo {
+  display: flex;
+  align-items: center;
+}
+
+// Navigation area
+.ly-header__nav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-24;
+  
+  @include mobile {
+    gap: $spacing-16;
+  }
+}

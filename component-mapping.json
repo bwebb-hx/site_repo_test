@@ -1,0 +1,433 @@
+{
+  "componentInstances": {
+    "figmaComponentsUsed": [
+      {
+        "figmaName": "ly-header",
+        "figmaInstanceId": "19:1447",
+        "figmaComponentId": "11:880",
+        "figmaComponentSetId": "11:881",
+        "variant": "Type=PC",
+        "webrelease2Mapping": {
+          "componentName": "header",
+          "directoryPath": "src/html/components/header",
+          "scssPath": "src/scss/components/_header.scss",
+          "methods": ["generateText"],
+          "elements": [
+            {
+              "name": "logoImage",
+              "type": "image",
+              "description": "Brand logo image"
+            },
+            {
+              "name": "navigationItems",
+              "type": "array",
+              "description": "Main navigation menu items"
+            }
+          ]
+        },
+        "placement": {
+          "templatePosition": "top",
+          "order": 1,
+          "wrapperClasses": ["ly-header"],
+          "configuration": {
+            "sticky": true,
+            "shadow": true,
+            "padding": "15px 24px"
+          }
+        }
+      },
+      {
+        "figmaName": "cp-breadcrumb",
+        "figmaInstanceId": "19:1379",
+        "figmaComponentId": "11:1997",
+        "figmaComponentSetId": "11:1998",
+        "variant": "Type=PC",
+        "webrelease2Mapping": {
+          "componentName": "breadcrumb",
+          "directoryPath": "src/html/components/breadcrumb",
+          "scssPath": "src/scss/components/_breadcrumb.scss",
+          "methods": ["generateText"],
+          "elements": [
+            {
+              "name": "navigationPath",
+              "type": "array",
+              "description": "Breadcrumb navigation items with text and URL"
+            },
+            {
+              "name": "currentPageText",
+              "type": "text",
+              "description": "Current page name"
+            },
+            {
+              "name": "homeUrl",
+              "type": "text",
+              "description": "URL for HOME link"
+            }
+          ]
+        },
+        "placement": {
+          "templatePosition": "after_header",
+          "order": 2,
+          "wrapperClasses": ["cp-breadcrumb"],
+          "configuration": {
+            "background": "#F2F1E9",
+            "padding": "16px 0px",
+            "horizontalScroll": true,
+            "height": "44px"
+          }
+        }
+      },
+      {
+        "figmaName": "H1",
+        "figmaInstanceId": "18:1323",
+        "figmaComponentId": "18:1321",
+        "figmaComponentSetId": "19:4151",
+        "variant": "Type=PC",
+        "properties": {
+          "Text#19:0": "新着情報・お知らせ"
+        },
+        "webrelease2Mapping": {
+          "componentName": "pageTitle",
+          "directoryPath": "src/html/components/pageTitle",
+          "scssPath": "src/scss/components/_page-title.scss", 
+          "methods": ["generateText"],
+          "elements": [
+            {
+              "name": "titleText",
+              "type": "text",
+              "description": "Main page title text"
+            },
+            {
+              "name": "titleLevel",
+              "type": "text",
+              "description": "Heading level (h1, h2, etc.)",
+              "default": "h1"
+            },
+            {
+              "name": "centered",
+              "type": "boolean",
+              "description": "Whether to center the title",
+              "default": true
+            }
+          ]
+        },
+        "placement": {
+          "templatePosition": "main_content_top",
+          "order": 3,
+          "wrapperClasses": ["cp-page-title"],
+          "configuration": {
+            "padding": "32px 0px",
+            "centered": true,
+            "maxWidth": "1184px"
+          }
+        }
+      },
+      {
+        "figmaName": "logo-brand",
+        "figmaInstanceId": "I19:1447;11:742",
+        "figmaComponentId": "1:21",
+        "webrelease2Mapping": {
+          "componentName": "logo",
+          "directoryPath": "src/html/components/logo",
+          "scssPath": "src/scss/components/_logo.scss",
+          "methods": ["generateText"],
+          "elements": [
+            {
+              "name": "logoImage",
+              "type": "image",
+              "description": "Logo image file"
+            },
+            {
+              "name": "logoAlt",
+              "type": "text",
+              "description": "Alternative text for logo"
+            },
+            {
+              "name": "logoUrl",
+              "type": "text",
+              "description": "URL for logo link",
+              "default": "/"
+            }
+          ]
+        },
+        "placement": {
+          "templatePosition": "within_header",
+          "parentComponent": "header",
+          "order": 1,
+          "wrapperClasses": ["cp-logo"],
+          "configuration": {
+            "width": "210.92px",
+            "height": "48px",
+            "linkToHome": true
+          }
+        }
+      },
+      {
+        "figmaName": "icon_arrow_right",
+        "figmaInstanceId": "I19:1379;11:2363",
+        "figmaComponentId": "11:2333",
+        "webrelease2Mapping": {
+          "componentName": "arrowIcon",
+          "directoryPath": "src/html/components/arrowIcon",
+          "scssPath": "src/scss/components/_arrow-icon.scss",
+          "methods": ["generateText"],
+          "elements": [
+            {
+              "name": "direction",
+              "type": "text",
+              "description": "Arrow direction (right, left, up, down)",
+              "default": "right"
+            },
+            {
+              "name": "size",
+              "type": "text", 
+              "description": "Icon size",
+              "default": "16px"
+            }
+          ]
+        },
+        "placement": {
+          "templatePosition": "within_breadcrumb",
+          "parentComponent": "breadcrumb",
+          "order": 2,
+          "wrapperClasses": ["cp-arrow-icon"],
+          "configuration": {
+            "size": "16px",
+            "usage": "breadcrumb_separator"
+          }
+        }
+      },
+      {
+        "figmaName": "bg_pc",
+        "figmaInstanceId": "I19:4631",
+        "figmaComponentId": "1:9",
+        "webrelease2Mapping": {
+          "componentName": "backgroundImage",
+          "directoryPath": "src/html/components/backgroundImage",
+          "scssPath": "src/scss/components/_background-image.scss",
+          "methods": ["generateText"],
+          "elements": [
+            {
+              "name": "backgroundImage",
+              "type": "image",
+              "description": "Background image file"
+            },
+            {
+              "name": "gradientOverlay",
+              "type": "boolean",
+              "description": "Whether to apply gradient overlay",
+              "default": true
+            },
+            {
+              "name": "overlayOpacity",
+              "type": "text",
+              "description": "Opacity of the overlay",
+              "default": "0.8"
+            }
+          ]
+        },
+        "placement": {
+          "templatePosition": "main_wrapper_background",
+          "order": 0,
+          "wrapperClasses": ["cp-bg-image"],
+          "configuration": {
+            "position": "absolute",
+            "size": "720x480px",
+            "gradientColors": ["#FAED32", "#FCFAE6"],
+            "zIndex": -1
+          }
+        }
+      },
+      {
+        "figmaName": "ly-footer",
+        "figmaInstanceId": "19:1541",
+        "figmaComponentId": "11:1959",
+        "figmaComponentSetId": "11:1960",
+        "variant": "Type=PC",
+        "webrelease2Mapping": {
+          "componentName": "footer",
+          "directoryPath": "src/html/components/footer",
+          "scssPath": "src/scss/components/_footer.scss",
+          "methods": ["generateText"],
+          "elements": [
+            {
+              "name": "footerNavigation",
+              "type": "array",
+              "description": "Footer navigation links"
+            },
+            {
+              "name": "copyrightText",
+              "type": "text",
+              "description": "Copyright notice text",
+              "default": "Copyright © 2025 Sakai Moving Service Co.Ltd"
+            },
+            {
+              "name": "showDecorativeLines",
+              "type": "boolean",
+              "description": "Whether to show decorative line elements",
+              "default": true
+            }
+          ]
+        },
+        "placement": {
+          "templatePosition": "bottom",
+          "order": 5,
+          "wrapperClasses": ["ly-footer"],
+          "configuration": {
+            "background": "#4D4C47",
+            "padding": "80px 0px 0px",
+            "copyrightBackground": "#1A1A18"
+          }
+        }
+      }
+    ]
+  },
+  "webrelease2ComponentMapping": {
+    "header": {
+      "figmaSource": "ly-header (11:880)",
+      "webrelease2Name": "header",
+      "type": "layout_component",
+      "directoryPath": "src/html/components/header",
+      "methods": ["generateText"],
+      "dependencies": ["logo"],
+      "templateUsage": "%headerComponent.selectedValue().generateText()%"
+    },
+    "breadcrumb": {
+      "figmaSource": "cp-breadcrumb (11:1997)",
+      "webrelease2Name": "breadcrumb", 
+      "type": "ui_component",
+      "directoryPath": "src/html/components/breadcrumb",
+      "methods": ["generateText"],
+      "dependencies": ["arrowIcon"],
+      "templateUsage": "%breadcrumbComponent.selectedValue().generateText()%"
+    },
+    "pageTitle": {
+      "figmaSource": "H1 (18:1321)",
+      "webrelease2Name": "pageTitle",
+      "type": "ui_component", 
+      "directoryPath": "src/html/components/pageTitle",
+      "methods": ["generateText"],
+      "dependencies": [],
+      "templateUsage": "%pageTitleComponent.selectedValue().generateText()%"
+    },
+    "logo": {
+      "figmaSource": "logo-brand (1:21)",
+      "webrelease2Name": "logo",
+      "type": "ui_component",
+      "directoryPath": "src/html/components/logo",
+      "methods": ["generateText"],
+      "dependencies": [],
+      "templateUsage": "%logoComponent.selectedValue().generateText()%"
+    },
+    "arrowIcon": {
+      "figmaSource": "icon_arrow_right (11:2333)",
+      "webrelease2Name": "arrowIcon",
+      "type": "ui_component",
+      "directoryPath": "src/html/components/arrowIcon", 
+      "methods": ["generateText"],
+      "dependencies": [],
+      "templateUsage": "%arrowIconComponent.selectedValue().generateText()%"
+    },
+    "backgroundImage": {
+      "figmaSource": "bg_pc (1:9)",
+      "webrelease2Name": "backgroundImage",
+      "type": "ui_component",
+      "directoryPath": "src/html/components/backgroundImage",
+      "methods": ["generateText"],
+      "dependencies": [],
+      "templateUsage": "%backgroundImageComponent.selectedValue().generateText()%"
+    },
+    "footer": {
+      "figmaSource": "ly-footer (11:1959)",
+      "webrelease2Name": "footer",
+      "type": "layout_component",
+      "directoryPath": "src/html/components/footer",
+      "methods": ["generateText"],
+      "dependencies": [],
+      "templateUsage": "%footerComponent.selectedValue().generateText()%"
+    }
+  },
+  "nonComponentElements": {
+    "templateSpecificHTML": [
+      {
+        "name": "main_wrapper",
+        "figmaId": "19:4630",
+        "description": "Main content wrapper container - not a reusable component",
+        "htmlElement": "div",
+        "classes": ["ly-wrapper"],
+        "purpose": "Layout container for main content area with background positioning"
+      },
+      {
+        "name": "container",
+        "figmaId": "19:4629", 
+        "description": "Content container - template-specific layout",
+        "htmlElement": "div",
+        "classes": ["ly-container"],
+        "purpose": "Centers content and provides max-width constraint (1184px)"
+      },
+      {
+        "name": "content_container",
+        "figmaId": "1:1816",
+        "description": "News list container - empty in design, will hold dynamic content",
+        "htmlElement": "div",
+        "classes": ["ly-container", "pg-newslist-content"],
+        "purpose": "Container for dynamic news list items with 64px gap"
+      },
+      {
+        "name": "newslist_frame",
+        "figmaId": "1:1796",
+        "description": "Root frame of the entire page design",
+        "htmlElement": "main",
+        "classes": ["pg-newslist"],
+        "purpose": "Root page container with 1440px width"
+      }
+    ],
+    "dynamicContentAreas": [
+      {
+        "name": "news_articles_list",
+        "location": "content_container (1:1816)",
+        "description": "Dynamic area for news article items",
+        "expectedContent": "List of news articles with title, date, summary",
+        "webrelease2Implementation": "wr-for loop with newsArticles array",
+        "componentNeeded": {
+          "name": "newsItem",
+          "type": "new_component_required",
+          "methods": ["generateText"],
+          "elements": ["title", "date", "summary", "link"]
+        }
+      }
+    ]
+  },
+  "componentConfiguration": {
+    "header": {
+      "configurationNeeded": [
+        "Logo image path",
+        "Navigation menu items",
+        "Sticky behavior setting"
+      ]
+    },
+    "breadcrumb": {
+      "configurationNeeded": [
+        "Navigation path array",
+        "Current page title",
+        "Home URL",
+        "Arrow separator styling"
+      ]
+    },
+    "pageTitle": {
+      "configurationNeeded": [
+        "Title text content",
+        "Heading level (h1)",
+        "Centering alignment"
+      ]
+    },
+    "footer": {
+      "configurationNeeded": [
+        "Footer navigation links",
+        "Copyright text",
+        "Decorative line elements",
+        "Background colors"
+      ]
+    }
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%pageTitle% - Sakai Moving Service</title>
+    <meta name="description" content="%isNotNull(metaDescription) ? metaDescription : \"最新の新着情報・お知らせをご覧ください。\"%">
+    <meta property="og:url" content="%pageURL()%">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="%pageTitle% - Sakai Moving Service">
+    <meta property="og:description" content="%isNotNull(metaDescription) ? metaDescription : \"最新の新着情報・お知らせをご覧ください。\"%">
+    <meta property="og:site_name" content="Sakai Moving Service">
+    <meta property="og:image" content="/assets_v2/img/common/ogp.png">
+    <link rel="canonical" href="%pageURL()%">
+    <link rel="icon" href="/assets_v2/img/common/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets_v2/img/common/apple-touch-icon.png">
+    
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/assets_v2/css/common.css">
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="/assets_v2/css/newslist.css">
+</head>
+<body class="pg-newslist">
+    <wr-- Page header with logo and navigation -->
+    <header class="ly-header">
+        %headerComponent.selectedValue().generateText()%
+    </header>
+
+    <wr-- Breadcrumb navigation -->
+    <nav class="cp-breadcrumb" aria-label="パンくずナビゲーション">
+        %breadcrumbComponent.selectedValue().generateText()%
+    </nav>
+
+    <wr-- Main content wrapper with background -->
+    <div class="ly-wrapper">
+        <wr-- Optional background image with gradient overlay -->
+        <wr-if condition="isNotNull(backgroundImage)">
+            <div class="ly-background">
+                %backgroundImageComponent.selectedValue().generateText()%
+            </div>
+        </wr-if>
+
+        <wr-- Main content container -->
+        <div class="ly-container">
+            <wr-- Page title section -->
+            <div class="cp-page-title">
+                %pageTitleComponent.selectedValue().generateText()%
+            </div>
+
+            <wr-- News articles content area -->
+            <div class="ly-container pg-newslist-content">
+                <wr-- Check if news articles exist -->
+                <wr-if condition="count(newsArticles) > 0">
+                    <wr-- Loop through news articles -->
+                    <div class="cp-news-list">
+                        <wr-for list="newsArticles" variable="article" count="i">
+                            <wr-- Individual news article item -->
+                            <article class="cp-news-item">
+                                %newsItemComponent.selectedValue().generateText()%
+                            </article>
+                            
+                            <wr-- Optional: Limit articles per page -->
+                            <wr-if condition="isNotNull(articlesPerPage) && i >= articlesPerPage">
+                                <wr-break/>
+                            </wr-if>
+                        </wr-for>
+                    </div>
+                    
+                    <wr-- Optional: Pagination or load more -->
+                    <wr-if condition="count(newsArticles) > articlesPerPage">
+                        <div class="cp-pagination">
+                            <wr-- Pagination component would go here -->
+                            <p class="pagination-info">
+                                %count(newsArticles)%件中 %articlesPerPage%件を表示
+                            </p>
+                        </div>
+                    </wr-if>
+                </wr-if>
+
+                <wr-- Empty state when no articles exist -->
+                <wr-if condition="count(newsArticles) == 0">
+                    <div class="cp-empty-state">
+                        <p class="empty-message">現在、お知らせはありません。</p>
+                    </div>
+                </wr-if>
+            </div>
+        </div>
+    </div>
+
+    <wr-- Page footer -->
+    <footer class="ly-footer">
+        %footerComponent.selectedValue().generateText()%
+    </footer>
+
+    <wr-- Error handling for required content -->
+    <wr-error condition="isNull(pageTitle)">
+        ページタイトルが設定されていません。
+    </wr-error>
+
+    <wr-error condition="isNull(headerComponent)">
+        ヘッダーコンポーネントが設定されていません。
+    </wr-error>
+
+    <wr-error condition="isNull(footerComponent)">
+        フッターコンポーネントが設定されていません。
+    </wr-error>
+</body>
+</html>

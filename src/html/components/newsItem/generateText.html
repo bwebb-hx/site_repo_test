@@ -1,0 +1,62 @@
+<div class="cp-news-item__content">
+    <wr-- Article header with date and category -->
+    <header class="cp-news-item__header">
+        <wr-if condition="isNotNull(article.articleDate)">
+            <time class="cp-news-item__date" datetime="%formatDate(article.articleDate, \"yyyy-MM-dd\")%">
+                %formatDate(article.articleDate, "yyyy年MM月dd日")%
+            </time>
+        </wr-if>
+        
+        <wr-if condition="isNotNull(article.articleCategory)">
+            <span class="cp-news-item__category">%article.articleCategory%</span>
+        </wr-if>
+        
+        <wr-if condition="article.featured == true">
+            <span class="cp-news-item__featured-badge">注目</span>
+        </wr-if>
+    </header>
+
+    <wr-- Article content area -->
+    <div class="cp-news-item__body">
+        <wr-- Optional thumbnail image -->
+        <wr-if condition="isNotNull(article.articleImage)">
+            <div class="cp-news-item__image">
+                <img src="%article.articleImage%" 
+                     alt="%article.articleTitle%" 
+                     class="cp-news-item__thumbnail"
+                     loading="lazy"
+                     width="300" 
+                     height="200" />
+            </div>
+        </wr-if>
+
+        <div class="cp-news-item__text">
+            <wr-- Article title -->
+            <h2 class="cp-news-item__title">
+                <wr-if condition="isNotNull(article.articleUrl)">
+                    <a href="%article.articleUrl%" class="cp-news-item__link">
+                        %article.articleTitle%
+                    </a>
+                </wr-if>
+                <wr-if condition="isNull(article.articleUrl)">
+                    %article.articleTitle%
+                </wr-if>
+            </h2>
+
+            <wr-- Article summary -->
+            <wr-if condition="isNotNull(article.articleSummary)">
+                <p class="cp-news-item__summary">%article.articleSummary%</p>
+            </wr-if>
+
+            <wr-- Read more link -->
+            <wr-if condition="isNotNull(article.articleUrl)">
+                <div class="cp-news-item__actions">
+                    <a href="%article.articleUrl%" class="cp-news-item__read-more">
+                        続きを読む
+                        <span class="cp-news-item__arrow" aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </wr-if>
+        </div>
+    </div>
+</div>

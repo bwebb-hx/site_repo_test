@@ -1,0 +1,37 @@
+<article class="cp-news-item">
+    <wr-error condition="isNull(title)">
+        News item title is required.
+    </wr-error>
+    
+    <div class="cp-news__info">
+        <div class="inner">
+            <wr-if condition="isNotNull(date)">
+                <time class="cp-news__date" datetime="%formatDate(date, \"yyyy-MM-dd\")%">
+                    %formatDate(date, "yyyy年M月d日")%
+                </time>
+            </wr-if>
+            
+            <wr-if condition="isNotNull(category)">
+                <span class="cp-news-tag cp-news-tag--filled">
+                    %category%
+                </span>
+            </wr-if>
+        </div>
+    </div>
+    
+    <div class="cp-news__text">
+        <wr-if condition="isNotNull(link)">
+            <wr-then>
+                <a href="%link%" class="cp-news__link" target="_blank" rel="noopener noreferrer">
+                    <p class="cp-news__title">%title%</p>
+                    <svg class="cp-news__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" fill="currentColor"/>
+                    </svg>
+                </a>
+            </wr-then>
+            <wr-else>
+                <p class="cp-news__title">%title%</p>
+            </wr-else>
+        </wr-if>
+    </div>
+</article>

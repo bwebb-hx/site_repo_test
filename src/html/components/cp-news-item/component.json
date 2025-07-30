@@ -1,0 +1,32 @@
+{
+  "name": "cp-news-item",
+  "description": "A news item component displaying date, category tag, title, and optional external link",
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "The method to render the news item component within a template or another component.",
+      "arguments": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": "The news item title/headline (required)"
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "The publication date of the news item"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "description": "The news category/tag (e.g., 'IR情報', 'プレスリリース')"
+        },
+        {
+          "name": "link",
+          "type": "string",
+          "description": "Optional external link URL for the news item"
+        }
+      ]
+    }
+  ]
+}
