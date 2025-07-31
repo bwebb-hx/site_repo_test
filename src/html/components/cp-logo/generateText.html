@@ -1,0 +1,37 @@
+<wr-- cp-logo component: Site logo with home link -->
+<wr-if condition="isNotNull(homeUrl) && isNotNull(logoImage)">
+    <wr-then>
+        <a href="%homeUrl%" class="cp-logo__link" aria-label="Go to homepage">
+            <img 
+                src="%logoImage%" 
+                alt="%altText%" 
+                class="cp-logo__image"
+                width="211"
+                height="48"
+                loading="lazy"
+            />
+        </a>
+    </wr-then>
+    <wr-else>
+        <wr-- Fallback: logo without link if homeUrl is missing -->
+        <wr-if condition="isNotNull(logoImage)">
+            <img 
+                src="%logoImage%" 
+                alt="%altText%" 
+                class="cp-logo__image cp-logo__image--no-link"
+                width="211"
+                height="48"
+                loading="lazy"
+            />
+        </wr-if>
+    </wr-else>
+</wr-if>
+
+<wr-- Error handling for missing required elements -->
+<wr-error condition="isNull(logoImage)">
+    Logo image is required for cp-logo component.
+</wr-error>
+
+<wr-error condition="isNull(altText)">
+    Alt text is required for cp-logo component accessibility.
+</wr-error>

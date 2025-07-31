@@ -1,0 +1,41 @@
+{
+  "name": "cp-icon-arrow-right",
+  "description": "Right arrow icon for breadcrumb separators",
+  "figmaComponentId": "11:2333",
+  "type": "component",
+  "responsive": true,
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Renders the right arrow icon with configurable size",
+      "arguments": [
+        {
+          "name": "size",
+          "type": "string",
+          "description": "Icon size (e.g., '16px', '20px')",
+          "default": "16px"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "name": "size",
+      "type": "text",
+      "description": "Icon size in pixels",
+      "default": "16px",
+      "required": false
+    }
+  ],
+  "styling": {
+    "width": "16px",
+    "height": "16px",
+    "display": "inline-flex",
+    "alignItems": "center",
+    "justifyContent": "center"
+  },
+  "usage": {
+    "primaryUse": "Breadcrumb navigation separators",
+    "secondaryUse": "General right arrow indicators"
+  }
+}

@@ -1,0 +1,76 @@
+// ly-sidemenu: Sidebar navigation menu layout component
+.ly-sidemenu {
+  width: 248px;
+  
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  
+  &__item {
+    display: block;
+  }
+  
+  &__link,
+  &__text {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.85);
+    font-family: 'BIZ UDPGothic', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      background-color: #F2F1E9;
+    }
+    
+    &:focus {
+      outline: 2px solid #4D4C47;
+      outline-offset: -2px;
+    }
+  }
+  
+  &__text {
+    color: rgba(0, 0, 0, 0.6);
+    cursor: default;
+    
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+// Responsive design
+@media screen and (max-width: 768px) {
+  .ly-sidemenu {
+    width: 100%;
+    
+    &__list {
+      gap: 0;
+    }
+    
+    &__link,
+    &__text {
+      padding: 16px 20px;
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ly-sidemenu {
+    &__link,
+    &__text {
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<footer class="ly-footer">
+    <wr-- Decorative line section with gradient opacity effects -->
+    <div class="ly-footer__line">
+        <div class="ly-footer__line-element ly-footer__line-element--opacity-20"></div>
+        <div class="ly-footer__line-element ly-footer__line-element--opacity-40"></div>
+        <div class="ly-footer__line-element ly-footer__line-element--opacity-60"></div>
+        <div class="ly-footer__line-element ly-footer__line-element--opacity-80"></div>
+    </div>
+    
+    <wr-- Footer links section -->
+    <wr-if condition="isNotNull(linkGroups) && count(linkGroups) > 0">
+        <div class="ly-footer__content">
+            <div class="ly-footer__links-container">
+                <wr-for list="linkGroups" variable="linkGroup">
+                    <div class="ly-footer__link-group">
+                        <wr-if condition="isNotNull(linkGroup.title)">
+                            <h3 class="ly-footer__group-title">%linkGroup.title%</h3>
+                        </wr-if>
+                        <wr-if condition="isNotNull(linkGroup.links) && count(linkGroup.links) > 0">
+                            <ul class="ly-footer__link-list">
+                                <wr-for list="linkGroup.links" variable="link">
+                                    <li class="ly-footer__link-item">
+                                        <wr-if condition="isNotNull(link.url)">
+                                            <wr-then>
+                                                <a href="%link.url%" class="ly-footer__link">%link.text%</a>
+                                            </wr-then>
+                                            <wr-else>
+                                                <span class="ly-footer__link ly-footer__link--no-url">%link.text%</span>
+                                            </wr-else>
+                                        </wr-if>
+                                    </li>
+                                </wr-for>
+                            </ul>
+                        </wr-if>
+                    </div>
+                </wr-for>
+            </div>
+        </div>
+    </wr-if>
+    
+    <wr-- Copyright section -->
+    <div class="ly-footer__copyright">
+        <wr-if condition="isNotNull(copyrightText)">
+            <wr-then>
+                <p class="ly-footer__copyright-text">%copyrightText%</p>
+            </wr-then>
+            <wr-else>
+                <p class="ly-footer__copyright-text">Copyright © 2025 Sakai Moving Service Co.Ltd</p>
+            </wr-else>
+        </wr-if>
+    </div>
+</footer>

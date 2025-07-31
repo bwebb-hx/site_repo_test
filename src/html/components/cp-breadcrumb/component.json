@@ -1,0 +1,55 @@
+{
+  "name": "cp-breadcrumb",
+  "description": "Navigation breadcrumb with home icon and separators",
+  "type": "component",
+  "figmaReference": {
+    "componentSetId": "11:1998",
+    "instanceId": "11:1997"
+  },
+  "elements": [
+    {
+      "name": "homeUrl",
+      "type": "text",
+      "required": true,
+      "description": "URL for home link",
+      "defaultValue": "/"
+    },
+    {
+      "name": "homeText", 
+      "type": "text",
+      "required": true,
+      "description": "Text for home link",
+      "defaultValue": "HOME"
+    },
+    {
+      "name": "currentPage",
+      "type": "text", 
+      "required": true,
+      "description": "Current page title"
+    },
+    {
+      "name": "showHomeIcon",
+      "type": "boolean",
+      "required": false,
+      "defaultValue": true,
+      "description": "Whether to show home icon"
+    }
+  ],
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Generate the breadcrumb navigation HTML",
+      "arguments": []
+    }
+  ],
+  "styling": {
+    "background": "#F2F1E9",
+    "padding": "16px 0px", 
+    "height": "44px",
+    "responsive": true
+  },
+  "accessibility": {
+    "role": "navigation",
+    "ariaLabel": "breadcrumb"
+  }
+}

@@ -1,0 +1,10 @@
+<wr-- cp-page-title component - Main page title (H1) -->
+<wr-- Validates required titleText element and renders semantic H1 -->
+
+<wr-error condition="isNull(titleText) || titleText == \"\"">
+    Page title text is required for cp-page-title component.
+</wr-error>
+
+<div class="cp-page-title">
+    <h1 class="cp-page-title__heading">%titleText%</h1>
+</div>

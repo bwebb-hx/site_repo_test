@@ -1,0 +1,350 @@
+// Newslist Page Styles
+// Page-specific styles for the news list template
+
+@use '../foundation' as *;
+
+// =============================================================================
+// PAGE-SPECIFIC LAYOUT
+// =============================================================================
+
+.pg-newslist {
+  // Page wrapper specific to newslist
+  .ly-wrapper {
+    min-height: 60vh;
+  }
+  
+  // Ensure proper spacing between main sections
+  .ly-container > * + * {
+    margin-top: $spacing-lg;
+  }
+}
+
+// =============================================================================
+// NEWS LIST COMPONENT
+// =============================================================================
+
+.cp-news-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  width: 100%;
+  
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-lg;
+  }
+}
+
+// =============================================================================
+// NEWS ITEM COMPONENT
+// =============================================================================
+
+.cp-news-item {
+  background: $color-white;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+  transition: all $transition-normal;
+  border: 1px solid transparent;
+  
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+  }
+  
+  // News item content wrapper
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+  
+  // Header section with meta info and title
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+  
+  // Meta information (date, category, badges)
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+  }
+  
+  // Date styling
+  &__date {
+    @extend .text-date;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+  
+  // Category tag
+  &__category {
+    @extend .text-category;
+    background: $color-light-beige;
+    color: $color-text-primary;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-md;
+    font-size: $font-size-xs;
+  }
+  
+  // NEW badge
+  &__badge {
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    
+    &--new {
+      background: $color-yellow-primary;
+      color: $color-black;
+    }
+  }
+  
+  // News item title
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    margin: 0;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  // Title link styling
+  &__link {
+    color: $color-text-primary;
+    text-decoration: none;
+    transition: color $transition-fast;
+    
+    &:hover,
+    &:focus {
+      color: darken($color-text-primary, 15%);
+    }
+    
+    &:focus-visible {
+      outline: 2px solid $color-yellow-primary;
+      outline-offset: 2px;
+      border-radius: $border-radius-sm;
+    }
+  }
+  
+  // Summary text
+  &__summary {
+    color: $color-text-primary;
+    line-height: $line-height-normal;
+    
+    p {
+      margin: 0;
+    }
+  }
+  
+  // Image figure
+  &__figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: $border-radius-md;
+    
+    @media (max-width: $breakpoint-md) {
+      border-radius: $border-radius-sm;
+    }
+  }
+  
+  // News item image
+  &__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: $news-item-image-width / $news-item-image-height;
+    object-fit: cover;
+    transition: transform $transition-normal;
+    
+    .cp-news-item:hover & {
+      transform: scale(1.05);
+    }
+  }
+  
+  // Action buttons section
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: $spacing-sm;
+  }
+  
+  // Read more link
+  &__read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    color: $color-text-primary;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+    transition: all $transition-fast;
+    
+    &:hover,
+    &:focus {
+      background: $color-light-beige;
+      color: $color-text-primary;
+    }
+    
+    &:focus-visible {
+      outline: 2px solid $color-yellow-primary;
+      outline-offset: 2px;
+    }
+  }
+  
+  // Arrow icon in read more link
+  &__arrow {
+    font-size: $font-size-sm;
+    transition: transform $transition-fast;
+    
+    .cp-news-item__read-more:hover & {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// =============================================================================
+// EMPTY STATE
+// =============================================================================
+
+.cp-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-4xl $spacing-lg;
+  text-align: center;
+  min-height: 40vh;
+  
+  &__content {
+    max-width: 500px;
+  }
+  
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-muted;
+    margin-bottom: $spacing-md;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  &__message {
+    color: $color-text-muted;
+    line-height: $line-height-normal;
+    margin: 0;
+  }
+}
+
+// =============================================================================
+// PAGINATION COMPONENT
+// =============================================================================
+
+.cp-pagination {
+  margin-top: $spacing-3xl;
+  
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+    
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+  
+  &__pages {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    
+    @media (max-width: $breakpoint-sm) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: $spacing-sm;
+    border-radius: $border-radius-md;
+    color: $color-text-primary;
+    text-decoration: none;
+    font-weight: $font-weight-normal;
+    transition: all $transition-fast;
+    border: 1px solid transparent;
+    
+    &:hover,
+    &:focus {
+      background: $color-light-beige;
+      border-color: $color-dark-gray;
+    }
+    
+    &:focus-visible {
+      outline: 2px solid $color-yellow-primary;
+      outline-offset: 2px;
+    }
+    
+    &--prev,
+    &--next {
+      padding: $spacing-sm $spacing-md;
+      min-width: auto;
+      
+      @media (max-width: $breakpoint-sm) {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+  
+  &__current {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: $spacing-sm;
+    background: $color-yellow-primary;
+    color: $color-black;
+    font-weight: $font-weight-bold;
+    border-radius: $border-radius-md;
+  }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: $breakpoint-sm) {
+  .cp-news-item {
+    &__meta {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    &__actions {
+      justify-content: center;
+    }
+  }
+}

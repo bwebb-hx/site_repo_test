@@ -1,0 +1,47 @@
+{
+  "name": "cp-icon-home",
+  "description": "Home icon for breadcrumbs and navigation",
+  "type": "component",
+  "figmaComponentId": "11:2334",
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Renders the home icon with configurable size",
+      "arguments": [
+        {
+          "name": "size",
+          "type": "string",
+          "description": "Icon size (e.g., '16px', '24px')",
+          "default": "16px"
+        },
+        {
+          "name": "className",
+          "type": "string", 
+          "description": "Additional CSS classes to apply",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "name": "size",
+      "type": "text",
+      "description": "Default icon size",
+      "default": "16px"
+    }
+  ],
+  "styling": {
+    "width": "16px",
+    "height": "16px",
+    "display": "inline-block"
+  },
+  "responsive": true,
+  "assets": [
+    {
+      "name": "icon_home",
+      "type": "svg",
+      "description": "Home icon SVG file"
+    }
+  ]
+}

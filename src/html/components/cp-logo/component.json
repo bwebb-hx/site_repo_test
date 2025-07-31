@@ -1,0 +1,45 @@
+{
+  "name": "cp-logo",
+  "description": "Site logo component with configurable image, alt text, and home URL link",
+  "type": "component",
+  "figmaComponentId": "1:21",
+  "elements": [
+    {
+      "name": "logoImage",
+      "type": "image",
+      "required": true,
+      "description": "Logo image file path"
+    },
+    {
+      "name": "altText", 
+      "type": "text",
+      "required": true,
+      "description": "Logo alt text for accessibility"
+    },
+    {
+      "name": "homeUrl",
+      "type": "text", 
+      "required": true,
+      "description": "URL to link logo to (typically home page)"
+    }
+  ],
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Renders the logo component as a linked image",
+      "arguments": []
+    }
+  ],
+  "styling": {
+    "dimensions": {
+      "width": "210.92px",
+      "height": "48px"
+    },
+    "responsive": true,
+    "className": "cp-logo"
+  },
+  "accessibility": {
+    "features": ["alt-text", "keyboard-navigation", "focus-indicators"],
+    "wcag": "2.1 AA compliant"
+  }
+}

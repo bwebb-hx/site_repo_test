@@ -1,0 +1,27 @@
+<wr-- ly-sidemenu component: Sidebar navigation menu layout -->
+<wr-error condition="isNull(menuItems)">
+    Menu items are required for the sidebar navigation.
+</wr-error>
+
+<nav class="ly-sidemenu" role="navigation" aria-label="Sidebar Navigation">
+    <wr-if condition="isNotNull(menuItems) && count(menuItems) > 0">
+        <ul class="ly-sidemenu__list">
+            <wr-for list="menuItems" variable="menuItem" count="i">
+                <li class="ly-sidemenu__item">
+                    <wr-if condition="isNotNull(menuItem.url)">
+                        <wr-then>
+                            <a href="%menuItem.url%" class="ly-sidemenu__link">
+                                %menuItem.text%
+                            </a>
+                        </wr-then>
+                        <wr-else>
+                            <span class="ly-sidemenu__text">
+                                %menuItem.text%
+                            </span>
+                        </wr-else>
+                    </wr-if>
+                </li>
+            </wr-for>
+        </ul>
+    </wr-if>
+</nav>

@@ -1,0 +1,46 @@
+{
+  "name": "cp-page-title",
+  "description": "Main page title component (H1) with responsive typography",
+  "type": "component",
+  "figmaReference": {
+    "componentSetId": "19:4151",
+    "instanceId": "18:1321"
+  },
+  "elements": [
+    {
+      "name": "titleText",
+      "type": "text",
+      "required": true,
+      "description": "Main page title text content",
+      "default": ""
+    }
+  ],
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Renders the main page title with proper semantic HTML and styling",
+      "arguments": []
+    }
+  ],
+  "styling": {
+    "className": "cp-page-title",
+    "dimensions": {
+      "width": "1184px",
+      "height": "106px",
+      "padding": "32px 0px"
+    },
+    "typography": {
+      "fontFamily": "BIZ UDPGothic",
+      "fontWeight": 700,
+      "fontSize": "28px",
+      "lineHeight": "1.54em",
+      "letterSpacing": "0.18%"
+    },
+    "responsive": true
+  },
+  "accessibility": {
+    "semanticTag": "h1",
+    "ariaLabel": "Page title",
+    "headingLevel": 1
+  }
+}

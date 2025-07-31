@@ -1,0 +1,80 @@
+// Component: cp-icon-home
+// Description: Home icon for breadcrumbs and navigation
+// BEM naming: .cp-icon-home
+
+.cp-icon-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  
+  // Element: image variant
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  
+  // Element: SVG variant  
+  &__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: currentColor;
+    fill: none;
+  }
+  
+  // Responsive sizing variants
+  &--small {
+    width: 12px;
+    height: 12px;
+  }
+  
+  &--medium {
+    width: 16px;
+    height: 16px;
+  }
+  
+  &--large {
+    width: 24px;
+    height: 24px;
+  }
+  
+  // State modifiers
+  &--interactive {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 0.7;
+    }
+    
+    &:focus {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+  
+  // Context modifiers
+  &--breadcrumb {
+    margin-right: 4px;
+    color: rgba(0, 0, 0, 0.85);
+  }
+  
+  &--navigation {
+    color: currentColor;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .cp-icon-home {
+    // Maintain accessibility on mobile
+    min-width: 16px;
+    min-height: 16px;
+  }
+}

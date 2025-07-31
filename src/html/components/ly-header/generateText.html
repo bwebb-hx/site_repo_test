@@ -1,0 +1,17 @@
+<header class="ly-header">
+    <wr-if condition="isNotNull(logo)">
+        <wr-if condition="isNotNull(homeUrl)">
+            <wr-then>
+                <a href="%homeUrl%" class="ly-header__logo-link">
+                    <img src="%logo%" alt="%logoAlt%" class="ly-header__logo" width="210" height="48" loading="eager" />
+                </a>
+            </wr-then>
+            <wr-else>
+                <img src="%logo%" alt="%logoAlt%" class="ly-header__logo" width="210" height="48" loading="eager" />
+            </wr-else>
+        </wr-if>
+    </wr-if>
+    <wr-error condition="isNull(logo)">
+        Header logo is required.
+    </wr-error>
+</header>

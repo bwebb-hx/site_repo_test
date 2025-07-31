@@ -1,0 +1,269 @@
+{
+  "templateName": "newslist",
+  "templateDescription": "News list page template with header, breadcrumb, main content area, and footer",
+  "components": [
+    {
+      "name": "header",
+      "componentName": "ly-header",
+      "html_path": "src/html/components/ly-header",
+      "elementMappings": {
+        "logoImage": "%logoImage%",
+        "siteTitle": "%siteTitle%", 
+        "homeUrl": "%homeUrl%"
+      },
+      "required": true,
+      "description": "Site header with logo and navigation"
+    },
+    {
+      "name": "breadcrumb",
+      "componentName": "cp-breadcrumb",
+      "html_path": "src/html/components/cp-breadcrumb",
+      "elementMappings": {
+        "homeUrl": "%homeUrl%",
+        "homeText": "%homeText%",
+        "currentPage": "%pageTitle%",
+        "showHomeIcon": "%showHomeIcon%"
+      },
+      "required": true,
+      "conditionalDisplay": "%hasBreadcrumb%",
+      "description": "Breadcrumb navigation showing current page location"
+    },
+    {
+      "name": "pageTitle",
+      "componentName": "cp-page-title",
+      "html_path": "src/html/components/cp-page-title",
+      "elementMappings": {
+        "titleText": "%pageTitle%"
+      },
+      "required": true,
+      "description": "Main page title (H1) component"
+    },
+    {
+      "name": "sidemenu",
+      "componentName": "ly-sidemenu",
+      "html_path": "src/html/components/ly-sidemenu",
+      "elementMappings": {
+        "menuItems": "%sidebarMenu%"
+      },
+      "required": true,
+      "conditionalDisplay": "%showSidebar%",
+      "description": "Sidebar navigation menu"
+    },
+    {
+      "name": "footer",
+      "componentName": "ly-footer",
+      "html_path": "src/html/components/ly-footer",
+      "elementMappings": {
+        "linkGroups": "%footerLinks%",
+        "copyrightText": "%copyrightText%"
+      },
+      "required": true,
+      "description": "Site footer with links and copyright"
+    }
+  ],
+  "templateElements": [
+    {
+      "name": "pageTitle",
+      "type": "text",
+      "required": true,
+      "description": "Main page title displayed in H1 and breadcrumb",
+      "defaultValue": "新着情報・お知らせ"
+    },
+    {
+      "name": "siteTitle",
+      "type": "text",
+      "required": true,
+      "description": "Site name used in branding and alt text",
+      "defaultValue": "サカイ引越センター"
+    },
+    {
+      "name": "homeText",
+      "type": "text",
+      "required": true,
+      "description": "Text for breadcrumb home link",
+      "defaultValue": "サカイ引越センターHOME"
+    },
+    {
+      "name": "homeUrl",
+      "type": "text",
+      "required": true,
+      "description": "URL for home page links",
+      "defaultValue": "/"
+    },
+    {
+      "name": "metaTitle",
+      "type": "text",
+      "required": true,
+      "description": "HTML page title for SEO",
+      "defaultValue": "新着情報・お知らせ | サカイ引越センター"
+    },
+    {
+      "name": "metaDescription",
+      "type": "text",
+      "required": true,
+      "description": "Meta description for SEO",
+      "defaultValue": "サカイ引越センターの最新ニュースとお知らせをご覧いただけます。"
+    },
+    {
+      "name": "canonicalUrl",
+      "type": "text",
+      "required": true,
+      "description": "Canonical URL for this page"
+    },
+    {
+      "name": "copyrightText",
+      "type": "text",
+      "required": true,
+      "description": "Footer copyright notice",
+      "defaultValue": "Copyright © 2025 Sakai Moving Service Co.Ltd"
+    },
+    {
+      "name": "logoImage",
+      "type": "image",
+      "required": true,
+      "description": "Company logo image",
+      "dimensions": "210.92x48"
+    },
+    {
+      "name": "backgroundImage",
+      "type": "image",
+      "required": false,
+      "description": "Optional decorative background image",
+      "dimensions": "720x480"
+    },
+    {
+      "name": "ogImage",
+      "type": "image",
+      "required": false,
+      "description": "Open Graph image for social media sharing",
+      "dimensions": "1200x630"
+    },
+    {
+      "name": "showHomeIcon",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to show home icon in breadcrumb",
+      "defaultValue": true
+    },
+    {
+      "name": "showBackgroundImage",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to display background image",
+      "defaultValue": true
+    },
+    {
+      "name": "showSidebar",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to display sidebar navigation",
+      "defaultValue": true
+    },
+    {
+      "name": "hasBreadcrumb",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to display breadcrumb navigation",
+      "defaultValue": true
+    },
+    {
+      "name": "hasMainContent",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether main content area should be displayed",
+      "defaultValue": true
+    },
+    {
+      "name": "newsItems",
+      "type": "array",
+      "required": true,
+      "description": "Array of news items to display",
+      "itemStructure": {
+        "title": "text",
+        "date": "date",
+        "summary": "text",
+        "url": "text",
+        "category": "text",
+        "image": "image",
+        "isNew": "boolean"
+      },
+      "minItems": 0,
+      "maxItems": 50
+    },
+    {
+      "name": "sidebarMenu",
+      "type": "array",
+      "required": true,
+      "description": "Sidebar navigation menu items",
+      "itemStructure": {
+        "text": "text",
+        "url": "text",
+        "isActive": "boolean",
+        "hasSubmenu": "boolean",
+        "submenuItems": "array"
+      },
+      "minItems": 1,
+      "maxItems": 20
+    },
+    {
+      "name": "footerLinks",
+      "type": "array",
+      "required": false,
+      "description": "Footer link groups",
+      "itemStructure": {
+        "title": "text",
+        "links": "array"
+      },
+      "minItems": 0,
+      "maxItems": 4
+    },
+    {
+      "name": "pagination",
+      "type": "object",
+      "required": false,
+      "description": "Pagination configuration for news list",
+      "structure": {
+        "currentPage": "number",
+        "totalPages": "number",
+        "prevUrl": "text",
+        "nextUrl": "text",
+        "pages": "array"
+      }
+    }
+  ],
+  "cssFiles": [
+    "/assets_v2/css/common.css",
+    "/assets_v2/css/newslist.css"
+  ],
+  "jsFiles": [],
+  "webrelease2Features": {
+    "conditionalLogic": [
+      "wr-if condition=\"hasBreadcrumb == true\"",
+      "wr-if condition=\"isNotNull(backgroundImage) && showBackgroundImage == true\"",
+      "wr-if condition=\"showSidebar == true\"",
+      "wr-if condition=\"hasMainContent == true && isNotNull(newsItems) && count(newsItems) > 0\"",
+      "wr-if condition=\"isNotNull(newsItem.category)\"",
+      "wr-if condition=\"newsItem.isNew == true\"",
+      "wr-if condition=\"isNotNull(newsItem.url)\"",
+      "wr-if condition=\"isNotNull(newsItem.summary)\"",
+      "wr-if condition=\"isNotNull(newsItem.image)\"",
+      "wr-if condition=\"isNotNull(pagination) && pagination.totalPages > 1\""
+    ],
+    "loops": [
+      "wr-for list=\"newsItems\" variable=\"newsItem\" count=\"itemIndex\"",
+      "wr-for list=\"pagination.pages\" variable=\"page\""
+    ],
+    "errorHandling": [
+      "wr-error condition=\"isNull(pageTitle)\"",
+      "wr-error condition=\"isNull(siteTitle)\"",
+      "wr-error condition=\"isNull(logoImage)\""
+    ],
+    "functions": [
+      "formatDate(newsItem.date, \"yyyy-MM-dd\")",
+      "formatDate(newsItem.date, \"yyyy年MM月dd日\")",
+      "isNotNull()",
+      "isNull()",
+      "count()"
+    ]
+  }
+}

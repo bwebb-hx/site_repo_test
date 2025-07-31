@@ -1,0 +1,55 @@
+{
+  "name": "ly-footer",
+  "description": "Site footer with decorative lines, link sections and copyright",
+  "type": "layout",
+  "figmaComponentSetId": "11:1960",
+  "figmaInstanceId": "11:1959",
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "The method to render this footer component within a template.",
+      "arguments": [
+        {
+          "name": "linkGroups",
+          "type": "array",
+          "required": false,
+          "description": "Array of footer link groups with title and links properties"
+        },
+        {
+          "name": "copyrightText",
+          "type": "string",
+          "required": true,
+          "description": "Copyright notice text"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "name": "linkGroups",
+      "type": "array",
+      "required": false,
+      "description": "Array of footer link groups"
+    },
+    {
+      "name": "copyrightText", 
+      "type": "text",
+      "required": true,
+      "description": "Copyright text"
+    }
+  ],
+  "styling": {
+    "padding": "80px 0px 0px",
+    "width": "1440px",
+    "background": "varies by section",
+    "colors": {
+      "decorativeLine": "#4D4C47",
+      "footerBackground": "#4D4C47", 
+      "copyrightBackground": "#1A1A18",
+      "copyrightText": "#FFFFFF"
+    }
+  },
+  "responsive": true,
+  "dependencies": [],
+  "version": "1.0.0"
+}

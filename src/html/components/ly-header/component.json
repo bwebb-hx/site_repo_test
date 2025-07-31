@@ -1,0 +1,46 @@
+{
+  "name": "ly-header",
+  "type": "layout",
+  "description": "Site header layout with logo and shadow",
+  "figmaReference": {
+    "componentSetId": "11:881",
+    "instanceId": "11:880"
+  },
+  "elements": [
+    {
+      "name": "logo",
+      "type": "image",
+      "required": true,
+      "description": "Site logo image"
+    },
+    {
+      "name": "logoAlt",
+      "type": "text",
+      "required": false,
+      "default": "Site Logo",
+      "description": "Alt text for logo image"
+    },
+    {
+      "name": "homeUrl",
+      "type": "text",
+      "required": false,
+      "default": "/",
+      "description": "URL to link logo to home page"
+    }
+  ],
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "The method to render the header layout within a template.",
+      "arguments": []
+    }
+  ],
+  "styling": {
+    "boxShadow": "0px 2px 8px 0px rgba(0, 0, 0, 0.1)",
+    "padding": "15px 24px",
+    "background": "#FFFFFF"
+  },
+  "responsive": true,
+  "dependencies": [],
+  "version": "1.0.0"
+}

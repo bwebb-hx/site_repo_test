@@ -1,0 +1,32 @@
+<wr-variable name="iconSize" value="size"/>
+<wr-variable name="additionalClasses" value="className"/>
+
+<wr-- Home icon component for breadcrumbs and navigation -->
+<span class="cp-icon-home%isNotNull(additionalClasses) ? \" \" + additionalClasses : \"\"%"
+      style="width: %iconSize%; height: %iconSize%;"
+      aria-label="Home">
+    <wr-if condition="isNotNull(iconHomeResource)">
+        <img src="%iconHomeResource%" 
+             alt="Home" 
+             width="%iconSize%" 
+             height="%iconSize%"
+             class="cp-icon-home__image"
+             loading="lazy" />
+    </wr-if>
+    <wr-if condition="isNull(iconHomeResource)">
+        <wr-- Fallback SVG icon if resource not available -->
+        <svg class="cp-icon-home__svg" 
+             width="%iconSize%" 
+             height="%iconSize%" 
+             viewBox="0 0 16 16" 
+             fill="none" 
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true">
+            <path d="M8 2L2 7V14H6V10H10V14H14V7L8 2Z" 
+                  stroke="currentColor" 
+                  stroke-width="1.5" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"/>
+        </svg>
+    </wr-if>
+</span>

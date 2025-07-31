@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%metaTitle%</title>
+    <meta name="description" content="%metaDescription%">
+    <meta property="og:url" content="%canonicalUrl%">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="%metaTitle%">
+    <meta property="og:description" content="%metaDescription%">
+    <meta property="og:site_name" content="%siteTitle%">
+    <wr-if condition="isNotNull(ogImage)">
+        <meta property="og:image" content="%ogImage%">
+    </wr-if>
+    <link rel="canonical" href="%canonicalUrl%">
+    <link rel="icon" href="/assets_v2/img/common/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets_v2/img/common/apple-touch-icon.png">
+    
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/assets_v2/css/common.css">
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="/assets_v2/css/newslist.css">
+</head>
+<body>
+    <wr-- Main page structure following the Figma design layout -->
+    
+    <!-- Header Section -->
+    %header.selectedValue().generateText()%
+    
+    <!-- Breadcrumb Navigation -->
+    <wr-if condition="hasBreadcrumb == true">
+        %breadcrumb.selectedValue().generateText()%
+    </wr-if>
+    
+    <!-- Main Content Wrapper -->
+    <main class="ly-wrapper">
+        <wr-- Background image (decorative, positioned absolute) -->
+        <wr-if condition="isNotNull(backgroundImage) && showBackgroundImage == true">
+            <div class="ly-wrapper__background">
+                <img src="%backgroundImage%" alt="" class="img_bg_pc" loading="lazy" />
+            </div>
+        </wr-if>
+        
+        <!-- Main Container -->
+        <div class="ly-container">
+            <!-- Page Title -->
+            %pageTitle.selectedValue().generateText()%
+            
+            <!-- Content Layout: Sidebar + Main Content -->
+            <div class="ly-content-layout">
+                <!-- Sidebar Navigation -->
+                <wr-if condition="showSidebar == true">
+                    %sidemenu.selectedValue().generateText()%
+                </wr-if>
+                
+                <!-- Main Content Area -->
+                <div class="ly-main-content">
+                    <wr-if condition="hasMainContent == true && isNotNull(newsItems) && count(newsItems) > 0">
+                        <wr-then>
+                            <!-- News Items List -->
+                            <div class="cp-news-list">
+                                <wr-for list="newsItems" variable="newsItem" count="itemIndex">
+                                    <article class="cp-news-item">
+                                        <div class="cp-news-item__content">
+                                            <!-- News Item Header -->
+                                            <header class="cp-news-item__header">
+                                                <div class="cp-news-item__meta">
+                                                    <time class="cp-news-item__date" datetime="%formatDate(newsItem.date, \"yyyy-MM-dd\")%">
+                                                        %formatDate(newsItem.date, "yyyy年MM月dd日")%
+                                                    </time>
+                                                    <wr-if condition="isNotNull(newsItem.category)">
+                                                        <span class="cp-news-item__category">%newsItem.category%</span>
+                                                    </wr-if>
+                                                    <wr-if condition="newsItem.isNew == true">
+                                                        <span class="cp-news-item__badge cp-news-item__badge--new">NEW</span>
+                                                    </wr-if>
+                                                </div>
+                                                <h2 class="cp-news-item__title">
+                                                    <wr-if condition="isNotNull(newsItem.url)">
+                                                        <wr-then>
+                                                            <a href="%newsItem.url%" class="cp-news-item__link">%newsItem.title%</a>
+                                                        </wr-then>
+                                                        <wr-else>
+                                                            %newsItem.title%
+                                                        </wr-else>
+                                                    </wr-if>
+                                                </h2>
+                                            </header>
+                                            
+                                            <!-- News Item Body -->
+                                            <wr-if condition="isNotNull(newsItem.summary)">
+                                                <div class="cp-news-item__summary">
+                                                    <p>%newsItem.summary%</p>
+                                                </div>
+                                            </wr-if>
+                                            
+                                            <!-- News Item Image (Optional) -->
+                                            <wr-if condition="isNotNull(newsItem.image)">
+                                                <figure class="cp-news-item__figure">
+                                                    <img src="%newsItem.image%" 
+                                                         alt="%newsItem.title%" 
+                                                         class="cp-news-item__image"
+                                                         loading="lazy"
+                                                         width="200" 
+                                                         height="150">
+                                                </figure>
+                                            </wr-if>
+                                            
+                                            <!-- Read More Link -->
+                                            <wr-if condition="isNotNull(newsItem.url)">
+                                                <div class="cp-news-item__actions">
+                                                    <a href="%newsItem.url%" class="cp-news-item__read-more">
+                                                        詳細を見る
+                                                        <span class="cp-news-item__arrow" aria-hidden="true">→</span>
+                                                    </a>
+                                                </div>
+                                            </wr-if>
+                                        </div>
+                                    </article>
+                                </wr-for>
+                            </div>
+                            
+                            <!-- Pagination (if needed in future) -->
+                            <wr-if condition="isNotNull(pagination) && pagination.totalPages > 1">
+                                <nav class="cp-pagination" aria-label="ページネーション">
+                                    <div class="cp-pagination__wrapper">
+                                        <wr-if condition="pagination.currentPage > 1">
+                                            <a href="%pagination.prevUrl%" class="cp-pagination__link cp-pagination__link--prev">
+                                                前のページ
+                                            </a>
+                                        </wr-if>
+                                        
+                                        <div class="cp-pagination__pages">
+                                            <wr-for list="pagination.pages" variable="page">
+                                                <wr-if condition="page.isCurrent == true">
+                                                    <wr-then>
+                                                        <span class="cp-pagination__current" aria-current="page">%page.number%</span>
+                                                    </wr-then>
+                                                    <wr-else>
+                                                        <a href="%page.url%" class="cp-pagination__link">%page.number%</a>
+                                                    </wr-else>
+                                                </wr-if>
+                                            </wr-for>
+                                        </div>
+                                        
+                                        <wr-if condition="pagination.currentPage < pagination.totalPages">
+                                            <a href="%pagination.nextUrl%" class="cp-pagination__link cp-pagination__link--next">
+                                                次のページ
+                                            </a>
+                                        </wr-if>
+                                    </div>
+                                </nav>
+                            </wr-if>
+                        </wr-then>
+                        <wr-else>
+                            <!-- Empty State -->
+                            <div class="cp-empty-state">
+                                <div class="cp-empty-state__content">
+                                    <h2 class="cp-empty-state__title">お知らせはありません</h2>
+                                    <p class="cp-empty-state__message">現在表示できるお知らせがございません。</p>
+                                </div>
+                            </div>
+                        </wr-else>
+                    </wr-if>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer Section -->
+    %footer.selectedValue().generateText()%
+    
+    <wr-- Error handling for required content -->
+    <wr-error condition="isNull(pageTitle)">
+        ページタイトルが設定されていません。
+    </wr-error>
+    
+    <wr-error condition="isNull(siteTitle)">
+        サイトタイトルが設定されていません。
+    </wr-error>
+    
+    <wr-error condition="isNull(logoImage)">
+        ロゴ画像が設定されていません。
+    </wr-error>
+</body>
+</html>

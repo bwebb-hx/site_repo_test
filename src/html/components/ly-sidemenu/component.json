@@ -1,0 +1,27 @@
+{
+  "name": "ly-sidemenu",
+  "description": "Sidebar navigation menu layout component with responsive menu items",
+  "type": "layout",
+  "figmaComponentId": "18:1797",
+  "methods": [
+    {
+      "name": "generateText",
+      "description": "Renders the sidebar navigation menu with menu items",
+      "arguments": []
+    }
+  ],
+  "elements": [
+    {
+      "name": "menuItems",
+      "type": "array",
+      "required": true,
+      "description": "Array of menu items with text and url properties. Each item should have 'text' and 'url' properties."
+    }
+  ],
+  "styling": {
+    "width": "248px",
+    "responsive": true
+  },
+  "dependencies": [],
+  "usage": "Used in page templates to provide sidebar navigation functionality"
+}

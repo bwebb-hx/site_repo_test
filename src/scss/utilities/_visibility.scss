@@ -1,0 +1,144 @@
+// Visibility Utilities
+// Utility classes for showing/hiding content
+
+@use '../foundation' as *;
+
+// =============================================================================
+// DISPLAY UTILITIES
+// =============================================================================
+
+.ut-show {
+  display: block !important;
+}
+
+.ut-hide {
+  display: none !important;
+}
+
+.ut-invisible {
+  visibility: hidden !important;
+}
+
+.ut-visible {
+  visibility: visible !important;
+}
+
+// =============================================================================
+// RESPONSIVE VISIBILITY
+// =============================================================================
+
+// Hide on mobile
+@media (max-width: $breakpoint-md) {
+  .ut-hide-mobile {
+    display: none !important;
+  }
+}
+
+// Show only on mobile
+.ut-show-mobile {
+  display: none !important;
+  
+  @media (max-width: $breakpoint-md) {
+    display: block !important;
+  }
+}
+
+// Hide on desktop
+@media (min-width: $breakpoint-md + 1) {
+  .ut-hide-desktop {
+    display: none !important;
+  }
+}
+
+// Show only on desktop
+.ut-show-desktop {
+  display: none !important;
+  
+  @media (min-width: $breakpoint-md + 1) {
+    display: block !important;
+  }
+}
+
+// =============================================================================
+// ACCESSIBILITY UTILITIES
+// =============================================================================
+
+// Screen reader only content
+.ut-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Screen reader only but focusable
+.ut-sr-only-focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: inherit !important;
+  margin: inherit !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+// =============================================================================
+// OPACITY UTILITIES
+// =============================================================================
+
+.ut-opacity-0 {
+  opacity: 0;
+}
+
+.ut-opacity-25 {
+  opacity: 0.25;
+}
+
+.ut-opacity-50 {
+  opacity: 0.5;
+}
+
+.ut-opacity-75 {
+  opacity: 0.75;
+}
+
+.ut-opacity-100 {
+  opacity: 1;
+}
+
+// =============================================================================
+// LOADING STATES
+// =============================================================================
+
+.ut-loading {
+  opacity: 0.6;
+  pointer-events: none;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid $color-light-beige;
+    border-top-color: $color-yellow-primary;
+    border-radius: 50%;
+    animation: ut-spin 1s linear infinite;
+    z-index: $z-index-modal;
+  }
+}
+
+@keyframes ut-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

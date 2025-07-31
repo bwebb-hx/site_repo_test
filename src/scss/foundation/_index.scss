@@ -1,0 +1,7 @@
+// Foundation Index
+// Centralized imports with @forward for all foundation partials
+
+@forward 'tokens';
+@forward 'reset';  
+@forward 'typography';
+@forward 'globals';

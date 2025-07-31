@@ -1,0 +1,28 @@
+<nav class="cp-breadcrumb" role="navigation" aria-label="breadcrumb">
+  <div class="cp-breadcrumb__container">
+    <ol class="cp-breadcrumb__list">
+      <li class="cp-breadcrumb__item">
+        <a href="%homeUrl%" class="cp-breadcrumb__link cp-breadcrumb__link--home">
+          <wr-if condition="showHomeIcon == true">
+            <span class="cp-breadcrumb__icon cp-breadcrumb__icon--home" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1L15 8H13V15H9V11H7V15H3V8H1L8 1Z" fill="currentColor"/>
+              </svg>
+            </span>
+          </wr-if>
+          <span class="cp-breadcrumb__text">%homeText%</span>
+        </a>
+      </li>
+      <li class="cp-breadcrumb__item cp-breadcrumb__item--separator" aria-hidden="true">
+        <span class="cp-breadcrumb__icon cp-breadcrumb__icon--arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </li>
+      <li class="cp-breadcrumb__item cp-breadcrumb__item--current">
+        <span class="cp-breadcrumb__text cp-breadcrumb__text--current" aria-current="page">%currentPage%</span>
+      </li>
+    </ol>
+  </div>
+</nav>

@@ -1,0 +1,237 @@
+// Typography Styles
+// Typography system based on design tokens
+
+@use 'tokens' as *;
+
+// =============================================================================
+// BASE TYPOGRAPHY
+// =============================================================================
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// =============================================================================
+// HEADINGS
+// =============================================================================
+
+// H1 - Main Page Title
+h1,
+.h1 {
+  font-family: $font-primary;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: 1.54;
+  letter-spacing: 0.0018em;
+  color: $color-text-primary;
+  margin-bottom: $spacing-lg;
+}
+
+// H2 - Section Headings
+h2,
+.h2 {
+  font-family: $font-primary;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+// H3 - Subsection Headings
+h3,
+.h3 {
+  font-family: $font-primary;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+// H4 - Card/Component Titles
+h4,
+.h4 {
+  font-family: $font-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+// H5 & H6 - Minor Headings
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+// =============================================================================
+// BODY TEXT
+// =============================================================================
+
+p {
+  margin-bottom: $spacing-md;
+  line-height: $line-height-normal;
+}
+
+// Large text
+.text-lg {
+  font-size: $font-size-lg;
+  line-height: $line-height-normal;
+}
+
+// Small text
+.text-sm {
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+}
+
+// Extra small text
+.text-xs {
+  font-size: $font-size-xs;
+  line-height: $line-height-normal;
+}
+
+// =============================================================================
+// SPECIALIZED TEXT STYLES
+// =============================================================================
+
+// Breadcrumb Text
+.text-breadcrumb {
+  font-size: $font-size-xs;
+  line-height: 1em;
+  
+  &--current {
+    font-family: $font-primary;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-relaxed;
+    letter-spacing: 0.0042em;
+  }
+  
+  &--link {
+    font-weight: $font-weight-normal;
+  }
+}
+
+// Copyright Text
+.text-copyright {
+  font-family: $font-secondary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-normal;
+  line-height: 1em;
+  color: $color-text-secondary;
+}
+
+// Date Text
+.text-date {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  color: $color-text-muted;
+}
+
+// Category/Badge Text
+.text-category {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+// =============================================================================
+// TEXT UTILITIES
+// =============================================================================
+
+// Font Weights
+.font-normal {
+  font-weight: $font-weight-normal;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+// Text Colors
+.text-primary {
+  color: $color-text-primary;
+}
+
+.text-secondary {
+  color: $color-text-secondary;
+}
+
+.text-muted {
+  color: $color-text-muted;
+}
+
+// Text Alignment
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Line Heights
+.leading-tight {
+  line-height: $line-height-tight;
+}
+
+.leading-normal {
+  line-height: $line-height-normal;
+}
+
+.leading-relaxed {
+  line-height: $line-height-relaxed;
+}
+
+// =============================================================================
+// RESPONSIVE TYPOGRAPHY
+// =============================================================================
+
+@media (max-width: $breakpoint-md) {
+  h1,
+  .h1 {
+    font-size: clamp($font-size-2xl, 4vw, $font-size-3xl);
+  }
+  
+  h2,
+  .h2 {
+    font-size: clamp($font-size-xl, 3.5vw, $font-size-2xl);
+  }
+  
+  h3,
+  .h3 {
+    font-size: clamp($font-size-lg, 3vw, $font-size-xl);
+  }
+}
+
+// =============================================================================
+// FOCUS STYLES
+// =============================================================================
+
+// Focus ring for interactive text elements
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid $color-yellow-primary;
+  outline-offset: 2px;
+  border-radius: $border-radius-sm;
+}
